@@ -1,0 +1,21 @@
+.app__logo {
+    width: 100px;
+}
+
+.app__navbar {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.app__navbar-links {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+li{
+    color: white;
+}

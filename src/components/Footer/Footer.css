@@ -1,0 +1,21 @@
+.app__footer {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.app__footer-links {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+   color: white;
+   text-decoration: none;  
+}
+
+p {
+    color: white
+}
