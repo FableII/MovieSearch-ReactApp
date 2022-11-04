@@ -1,9 +1,9 @@
-import './Main.css'
+import './Search.css'
 
 
-export const Main = () => {
+export const Search = () => {
   return (
-    <main className="app__main">
+    <main className="app__search">
       <form action="">
       <input type="text" placeholder='Search...'/>
       <button>Search</button>
