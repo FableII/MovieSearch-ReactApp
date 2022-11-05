@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.app__navbar-links {
+.app__navbar__list {
     width: 300px;
     display: flex;
     justify-content: space-around;
