@@ -16,13 +16,13 @@ export const Navbar = () => {
           <Link to="/search">Search</Link>
         </li>
         <li className="app__navbar__list-item">
-          <Link to="/">Favorites</Link>
+          <Link to="/favorites">Favorites</Link>
         </li>
         <li className="app__navbar__list-item">
-          <Link to="/">History</Link>
+          <Link to="/history">History</Link>
         </li>
         <li className="app__navbar__list-item">
-          <Link to="/">Sign-in</Link>
+          <Link to="/signup">Sign-up</Link>
         </li>
       </ul>
     </nav>

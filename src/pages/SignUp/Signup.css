@@ -1,0 +1,81 @@
+.app__signup {
+    width: 100vw;
+    height: 80vh;
+    /* height: fit-content; */
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../../assets/images/NetflixWitcher.jpg');
+    /* padding: 1rem 10rem; */
+  }
+  
+  .app__signup-form {
+    max-width: 450px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  .app__signup-form form {
+    height: 90%;
+    background-color: #333333;
+    padding: 15px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+    border-radius: 5px;
+    opacity: 90%;
+  }
+  
+  .app__signup-form-h {
+    margin: 0.7rem 0;
+    letter-spacing: 0.05em;
+    /* text-transform: uppercase; */
+    font-size: 18px;
+    color: #ffff;
+    text-align: center;
+  }
+
+ /*  .app__signup-redirect {
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  } */
+  
+  .app__signup-redirect-p {
+    color: #000000;
+    font-size: 18px;
+    letter-spacing: 0.03em;
+  }
+  
+  .app__signup-redirect-span {
+    text-decoration: underline;
+  }
+  
+  .app__form-button {
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    background-color: #831010;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    transition: 0.6s;
+  }
+  
+  .app__form-button:hover {
+    background-color: #db0000;
+  }
+  
