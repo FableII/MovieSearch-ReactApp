@@ -9,16 +9,18 @@ import { Search } from "./components/Search/Search";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      
       <Router>
+      <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path='/search' element={<Search />} />
+          <Route path="/search" element={<Search />} />
           
           {/* <Route path='/signup' element={<SignUp />} /> */}
         </Routes>
+        <Footer />
       </Router>
-      <Footer />
+      
     </div>
   );
 }

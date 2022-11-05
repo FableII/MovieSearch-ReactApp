@@ -6,21 +6,23 @@ export const Navbar = () => {
   return (
     <nav className="app__navbar">
       <div className="app__navbar__logo">
-      <a href="#"><img className="app__logo" src={logo} alt="logo" /></a>
+        <Link to="/">
+          {" "}
+          <img className="app__logo" src={logo} alt="logo" />{" "}
+        </Link>
       </div>
       <ul className="app__navbar__list">
-       <li><Link to="/search">Search</Link></li> 
         <li className="app__navbar__list-item">
-          <a href="#">Search</a>
+          <Link to="/search">Search</Link>
         </li>
         <li className="app__navbar__list-item">
-          <a href="#">Favorites</a>
+          <Link to="/">Favorites</Link>
         </li>
         <li className="app__navbar__list-item">
-          <a href="#">History</a>
+          <Link to="/">History</Link>
         </li>
         <li className="app__navbar__list-item">
-          <a href="#">Sign-in</a>
+          <Link to="/">Sign-in</Link>
         </li>
       </ul>
     </nav>
