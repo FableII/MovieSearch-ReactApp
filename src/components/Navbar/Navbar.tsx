@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "./Navbar.css";
 import logo from "../../assets/logo/NetflixLogo.webp";
+import "./Navbar.css";
 
 export const Navbar = () => {
   return (
