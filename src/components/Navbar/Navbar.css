@@ -10,7 +10,7 @@
 }
 
 .app__navbar__list {
-    width: 300px;
+    width: 400px;
     display: flex;
     justify-content: space-around;
     list-style-type: none;
