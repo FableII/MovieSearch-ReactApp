@@ -45,7 +45,7 @@ export const SignIn = () => {
         </form>
         <div className="app__signin-redirect">
           <Link to="/signup">
-            <span className="app__signin-redirect-span"> Sign up Now!</span>
+            <span className="app__signin-redirect-span">Sign up Now!</span>
           </Link>
         </div>
       </div>
