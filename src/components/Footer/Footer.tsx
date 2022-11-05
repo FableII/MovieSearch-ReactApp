@@ -3,7 +3,7 @@ import "./Footer.css";
 export const Footer = () => {
   return (
     <footer className="app__footer">
-       <ul className="app__footer-links">
+       <ul className="app__footer__list">
         <li className="app__footer-item">
           <a href="#">Home</a>
         </li>

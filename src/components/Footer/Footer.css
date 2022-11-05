@@ -5,7 +5,7 @@
     justify-content: space-around;
 }
 
-.app__footer-links {
+.app__footer__list {
     width: 200px;
     display: flex;
     justify-content: space-between;

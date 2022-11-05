@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import logo from "../../assets/logo/Netflix-logo.png";
+import logo from "../../assets/logo/NetflixLogo.webp";
 
 export const Navbar = () => {
   return (
