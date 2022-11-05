@@ -22,7 +22,10 @@ export const Navbar = () => {
           <Link to="/history">History</Link>
         </li>
         <li className="app__navbar__list-item">
-          <Link to="/signup">Sign-up</Link>
+          <Link to="/signin">Sign in</Link>
+        </li>
+        <li className="app__navbar__list-item">
+          <Link to="/signup">Sign up</Link>
         </li>
       </ul>
     </nav>

@@ -5,14 +5,12 @@ import {
   usernamePattern,
   passwordPattern,
 } from "../../utils/constants/constants";
-import "./Signup.css";
+import "./SignIn.css";
 
-export const SignUp = () => {
+export const SignIn = () => {
   const [values, setValues] = useState({
-    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const inputs = [
@@ -21,38 +19,19 @@ export const SignUp = () => {
       name: "username",
       type: "text",
       placeholder: "Username",
-      errorMessage: "4-16 characters without special symbols !",
+      errorMessage: "Please enter Username",
       label: "Username",
       pattern: usernamePattern,
       required: true,
     },
     {
       id: 2,
-      name: "email",
-      type: "email",
-      placeholder: "Email",
-      errorMessage: "Enter a valid email address !",
-      label: "Email",
-      required: true,
-    },
-    {
-      id: 3,
       name: "password",
       type: "password",
       placeholder: "Password",
-      errorMessage: "At least one number and symbol !",
+      errorMessage: "Please enter Password",
       label: "Password",
       pattern: passwordPattern,
-      required: true,
-    },
-    {
-      id: 4,
-      name: "confirmPassword",
-      type: "password",
-      placeholder: "Confirm Password",
-      errorMessage: "Passwords do not match !",
-      label: "Confirm Password",
-      pattern: values.password,
       required: true,
     },
   ];
@@ -62,13 +41,11 @@ export const SignUp = () => {
   };
 
   return (
-    <div className="app__signup">
-      <div className="app__signup-form">
-        <form onSubmit={/* handleSubmit */ () => console.log("submitted")}>
-          <h1 className="app__signup-form-h">
-            Ready to watch ? <br /> Create your membership
-          </h1>
-          <div className="app__signup-form-inputs">
+    <div className="app__signin">
+      <div className="app__signin-form">
+        <form onSubmit={() => console.log("submitted")}>
+          <h1 className="app__signin-form-h">Log in</h1>
+          <div className="app__signin-form-inputs">
             {inputs.map((input) => (
               <FormInput
                 key={input.id}
@@ -87,13 +64,10 @@ export const SignUp = () => {
           </div>
           <button className="app__form-button">Submit</button>
         </form>
-        <div className="app__signup-redirect">
-          <p className="app__signup-redirect-p">
-            Already a member?
-            <Link to="/signin">
-              <span className="app__signup-redirect-span"> Log In Now!</span>
-            </Link>
-          </p>
+        <div className="app__signin-redirect">
+          <Link to="/signup">
+            <span className="app__signin-redirect-span"> Sign up Now!</span>
+          </Link>
         </div>
       </div>
     </div>
