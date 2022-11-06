@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FormInput } from "../../components/FormInput/FormInput";
+import { addUser } from "../../redux/slices/userSlice";
+import { useAppDispatch } from "../../hooks/hooks";
 import { SIGNUPINPUTS } from "../../utils/constants/constants";
 import "./SignUp.css";
 
@@ -12,6 +14,7 @@ export const SignUp = () => {
     confirmPassword: "",
   });
 
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const confirmPswInput = [
@@ -40,8 +43,10 @@ export const SignUp = () => {
       historySearch: [],
     };
 
+    dispatch(addUser(newUser));
     navigate("/signin");
     console.log(newUser);
+    console.log(addUser(newUser));
   };
 
   const onChange = (value: string, name: string) => {
