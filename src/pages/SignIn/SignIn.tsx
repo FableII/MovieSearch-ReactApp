@@ -21,6 +21,7 @@ export const SignIn = () => {
 
     try {
       let checkEmail = user[values.email as keyof typeof user]["email"];
+      console.log(user)
 
       if (
         checkEmail &&
@@ -75,3 +76,4 @@ export const SignIn = () => {
     </div>
   );
 };
+
