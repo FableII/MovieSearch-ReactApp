@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FormInput } from "../../components/FormInput/FormInput";
+import { signIn } from "../../redux/slices/userSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { LOGININPUTS } from "../../utils/constants/constants";
 import "./SignIn.css";
 
@@ -9,14 +11,35 @@ export const SignIn = () => {
     email: "",
     password: "",
   });
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const user = useAppSelector((state) => state.user);
 
   const checkUser = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log("USER NOT FOUND");
-  }
 
-  const onChange = (value: string, name: string) => {
-    setValues({ ...values, [name]: value });
+    try {
+      let checkEmail = user[values.email as keyof typeof user]["email"];
+
+      if (
+        checkEmail &&
+        values.password === user[values.email as keyof typeof user]["password"]
+      ) {
+        dispatch(signIn(values.email));
+
+        navigate("/");
+      } else {
+        alert("Invalid password.");
+      }
+    } catch (err) {
+      alert("User doesn't exist.");
+    }
+  };
+
+  const onChange = (e: React.SyntheticEvent) => {
+    const target = e.target as HTMLInputElement;
+    setValues({ ...values, [target.name]: target.value });
   };
 
   return (
@@ -37,7 +60,7 @@ export const SignIn = () => {
                 required={input.required}
                 placeholder={input.placeholder}
                 value={values[input.name as keyof typeof values]}
-                onChange={(e) => onChange(e.target.value, e.target.name)}
+                onChange={onChange}
               />
             ))}
           </div>
