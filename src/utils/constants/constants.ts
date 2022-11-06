@@ -37,12 +37,11 @@ export const SIGNUPINPUTS = [
 export const LOGININPUTS = [
   {
     id: 1,
-    name: "username",
-    type: "text",
-    placeholder: "Username",
-    errorMessage: "Please enter Username",
-    label: "Username",
-    pattern: USRNPATTERN,
+    name: "email",
+    type: "email",
+    placeholder: "Email",
+    errorMessage: "It should be a valid email address!",
+    label: "Email",
     required: true,
   },
   {

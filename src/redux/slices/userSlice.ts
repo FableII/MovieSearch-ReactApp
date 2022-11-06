@@ -27,6 +27,7 @@ const userSlice = createSlice({
     addUser(state, action) {
       const newUser = action.payload.email;
       state[newUser] = action.payload;
+      console.log("НОВЫЙ ЮЗЕР: ", newUser)
     },
   },
 });

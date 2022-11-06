@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit"; 
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
   persistReducer,
   persistStore,
@@ -36,5 +36,5 @@ const store = configureStore({
 
 export const persistor = persistStore(store);
 export default store;
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

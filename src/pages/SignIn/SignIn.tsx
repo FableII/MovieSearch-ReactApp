@@ -18,10 +18,11 @@ export const SignIn = () => {
 
   const checkUser = (e: React.SyntheticEvent) => {
     e.preventDefault();
-
+    console.log("сейчас введен:", user) /// ТУТ ОШИБКА
     try {
       let checkEmail = user[values.email as keyof typeof user]["email"];
-      console.log(user)
+      // Не отрабатывает TRY
+      console.log("ОТРАБАТЫВАЕТ!",checkEmail)
 
       if (
         checkEmail &&
