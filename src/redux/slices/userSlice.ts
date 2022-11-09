@@ -27,7 +27,10 @@ const userSlice = createSlice({
     addUser(state, action) {
       const newUser = action.payload.email;
       state[newUser] = action.payload;
-      console.log("НОВЫЙ ЮЗЕР: ", newUser)
+      state[newUser].isAuth = false;
+      state[newUser].favorites = [];
+      state[newUser].historySearch = [];
+      console.log("НОВЫЙ ЮЗЕР: ", state[newUser])
     },
   },
 });

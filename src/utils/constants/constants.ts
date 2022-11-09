@@ -1,8 +1,8 @@
-export const USRNPATTERN = "^[A-Za-z0-9]{4,16}$";
-export const PSWPATTERN =
+export const USERNAME_PATTERN = "^[A-Za-z0-9]{4,16}$";
+export const PASSWORD_PATTERN =
   "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,20}$";
 
-export const SIGNUPINPUTS = [
+export const SIGNUP_INPUTS = [
   {
     id: 1,
     name: "username",
@@ -10,7 +10,7 @@ export const SIGNUPINPUTS = [
     placeholder: "Username",
     errorMessage: "4-16 characters without special symbols !",
     label: "Username",
-    pattern: USRNPATTERN,
+    pattern: USERNAME_PATTERN,
     required: true,
   },
   {
@@ -29,12 +29,12 @@ export const SIGNUPINPUTS = [
     placeholder: "Password",
     errorMessage: "At least one number and symbol !",
     label: "Password",
-    pattern: PSWPATTERN,
+    pattern: PASSWORD_PATTERN,
     required: true,
   },
 ];
 
-export const LOGININPUTS = [
+export const LOGIN_INPUTS = [
   {
     id: 1,
     name: "email",
@@ -51,7 +51,7 @@ export const LOGININPUTS = [
     placeholder: "Password",
     errorMessage: "Please enter Password",
     label: "Password",
-    pattern: PSWPATTERN,
+    pattern: PASSWORD_PATTERN,
     required: true,
   },
 ];

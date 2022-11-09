@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FormInput } from "../../components/FormInput/FormInput";
 import { addUser } from "../../redux/slices/userSlice";
 import { useAppDispatch } from "../../hooks/hooks";
-import { SIGNUPINPUTS } from "../../utils/constants/constants";
+import { SIGNUP_INPUTS } from "../../utils/constants/constants";
 import "./SignUp.css";
 
 export const SignUp = () => {
@@ -30,7 +30,7 @@ export const SignUp = () => {
     },
   ];
 
-  const inputs = [...SIGNUPINPUTS, ...confirmPswInput];
+  const inputs = [...SIGNUP_INPUTS, ...confirmPswInput];
 
   const createUser = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -38,14 +38,14 @@ export const SignUp = () => {
       username: values.username,
       email: values.email,
       password: values.password,
-      isAuth: false,
+     /*  isAuth: false,
       favorites: [],
-      historySearch: [],
+      historySearch: [], */
     };
 
     dispatch(addUser(newUser));
     navigate("/signin");
-    
+
     console.log(newUser);
     console.log(addUser(newUser));
     console.log(dispatch(addUser(newUser)));

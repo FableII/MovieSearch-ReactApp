@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FormInput } from "../../components/FormInput/FormInput";
 import { signIn } from "../../redux/slices/userSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { LOGININPUTS } from "../../utils/constants/constants";
+import { LOGIN_INPUTS } from "../../utils/constants/constants";
 import "./SignIn.css";
 
 export const SignIn = () => {
@@ -18,11 +18,8 @@ export const SignIn = () => {
 
   const checkUser = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log("сейчас введен:", user) /// ТУТ ОШИБКА
     try {
       let checkEmail = user[values.email as keyof typeof user]["email"];
-      // Не отрабатывает TRY
-      console.log("ОТРАБАТЫВАЕТ!",checkEmail)
 
       if (
         checkEmail &&
@@ -50,7 +47,7 @@ export const SignIn = () => {
         <form onSubmit={checkUser}>
           <h1 className="app__signin-form-h">Log in</h1>
           <div className="app__signin-form-inputs">
-            {LOGININPUTS.map((input) => (
+            {LOGIN_INPUTS.map((input) => (
               <FormInput
                 key={input.id}
                 id={input.id}
@@ -77,4 +74,3 @@ export const SignIn = () => {
     </div>
   );
 };
-
