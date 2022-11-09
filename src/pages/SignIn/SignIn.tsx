@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FormInput } from "../../components/FormInput/FormInput";
-import {
-  usernamePattern,
-  passwordPattern,
-} from "../../utils/constants/constants";
+import { signIn } from "../../redux/slices/userSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { LOGIN_INPUTS } from "../../utils/constants/constants";
 import "./SignIn.css";
 
 export const SignIn = () => {
@@ -12,41 +11,43 @@ export const SignIn = () => {
     email: "",
     password: "",
   });
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  const inputs = [
-    {
-      id: 1,
-      name: "username",
-      type: "text",
-      placeholder: "Username",
-      errorMessage: "Please enter Username",
-      label: "Username",
-      pattern: usernamePattern,
-      required: true,
-    },
-    {
-      id: 2,
-      name: "password",
-      type: "password",
-      placeholder: "Password",
-      errorMessage: "Please enter Password",
-      label: "Password",
-      pattern: passwordPattern,
-      required: true,
-    },
-  ];
+  const user = useAppSelector((state) => state.user);
 
-  const onChange = (value: string, name: string) => {
-    setValues({ ...values, [name]: value });
+  const checkUser = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    try {
+      let checkEmail = user[values.email as keyof typeof user]["email"];
+
+      if (
+        checkEmail &&
+        values.password === user[values.email as keyof typeof user]["password"]
+      ) {
+        dispatch(signIn(values.email));
+
+        navigate("/");
+      } else {
+        alert("Invalid password.");
+      }
+    } catch (err) {
+      alert("User doesn't exist.");
+    }
+  };
+
+  const onChange = (e: React.SyntheticEvent) => {
+    const target = e.target as HTMLInputElement;
+    setValues({ ...values, [target.name]: target.value });
   };
 
   return (
     <div className="app__signin">
       <div className="app__signin-form">
-        <form onSubmit={() => console.log("submitted")}>
+        <form onSubmit={checkUser}>
           <h1 className="app__signin-form-h">Log in</h1>
           <div className="app__signin-form-inputs">
-            {inputs.map((input) => (
+            {LOGIN_INPUTS.map((input) => (
               <FormInput
                 key={input.id}
                 id={input.id}
@@ -58,15 +59,15 @@ export const SignIn = () => {
                 required={input.required}
                 placeholder={input.placeholder}
                 value={values[input.name as keyof typeof values]}
-                onChange={(e) => onChange(e.target.value, e.target.name)}
+                onChange={onChange}
               />
             ))}
           </div>
-          <button className="app__form-button">Submit</button>
+          <button className="app__form-button">Login</button>
         </form>
         <div className="app__signin-redirect">
           <Link to="/signup">
-            <span className="app__signin-redirect-span"> Sign up Now!</span>
+            <span className="app__signin-redirect-span">Sign up Now!</span>
           </Link>
         </div>
       </div>

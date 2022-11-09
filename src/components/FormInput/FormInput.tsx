@@ -29,7 +29,7 @@ export const FormInput = (props: FormInputProps) => {
         {...inputProps}
         onChange={onChange}
         onBlur={handleFocus}
-        onFocus={() => inputProps.name === "confirmPassword" && setFocus(true)}
+        onFocus={() => inputProps.name === "confirmPassword" && handleFocus()}
         data-focused={focus.toString()}
       />
       <span>{errorMessage}</span>

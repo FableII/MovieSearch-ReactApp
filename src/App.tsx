@@ -3,9 +3,10 @@ import "./App.css";
 
 import { Footer } from "./components/Footer/Footer";
 import { Navbar } from "./components/Navbar/Navbar";
+import { Search } from "./pages/Search/Search";
 import { Home } from "./pages/Home/Home";
 import { SignIn } from "./pages/SignIn/SignIn";
-import { SignUp } from "./pages/SignUp/Signup";
+import { SignUp } from "./pages/SignUp/SignUp";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path='/signin' element={<SignIn/>} />
           <Route path='/signup' element={<SignUp />} />
+          <Route path='/search' element={<Search />} />
         </Routes>
         <Footer />
       </Router>

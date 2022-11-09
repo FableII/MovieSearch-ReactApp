@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FormInput } from "../../components/FormInput/FormInput";
-import {
-  usernamePattern,
-  passwordPattern,
-} from "../../utils/constants/constants";
-import "./Signup.css";
+import { addUser } from "../../redux/slices/userSlice";
+import { useAppDispatch } from "../../hooks/hooks";
+import { SIGNUP_INPUTS } from "../../utils/constants/constants";
+import "./SignUp.css";
 
 export const SignUp = () => {
   const [values, setValues] = useState({
@@ -15,36 +14,10 @@ export const SignUp = () => {
     confirmPassword: "",
   });
 
-  const inputs = [
-    {
-      id: 1,
-      name: "username",
-      type: "text",
-      placeholder: "Username",
-      errorMessage: "4-16 characters without special symbols !",
-      label: "Username",
-      pattern: usernamePattern,
-      required: true,
-    },
-    {
-      id: 2,
-      name: "email",
-      type: "email",
-      placeholder: "Email",
-      errorMessage: "Enter a valid email address !",
-      label: "Email",
-      required: true,
-    },
-    {
-      id: 3,
-      name: "password",
-      type: "password",
-      placeholder: "Password",
-      errorMessage: "At least one number and symbol !",
-      label: "Password",
-      pattern: passwordPattern,
-      required: true,
-    },
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const confirmPswInput = [
     {
       id: 4,
       name: "confirmPassword",
@@ -57,6 +30,24 @@ export const SignUp = () => {
     },
   ];
 
+  const inputs = [...SIGNUP_INPUTS, ...confirmPswInput];
+
+  const createUser = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const newUser = {
+      username: values.username,
+      email: values.email,
+      password: values.password,
+    };
+
+    dispatch(addUser(newUser));
+    navigate("/signin");
+
+    console.log(newUser);
+    console.log(addUser(newUser));
+    console.log(dispatch(addUser(newUser)));
+  };
+
   const onChange = (value: string, name: string) => {
     setValues({ ...values, [name]: value });
   };
@@ -64,7 +55,7 @@ export const SignUp = () => {
   return (
     <div className="app__signup">
       <div className="app__signup-form">
-        <form onSubmit={/* handleSubmit */ () => console.log("submitted")}>
+        <form onSubmit={createUser}>
           <h1 className="app__signup-form-h">
             Ready to watch ? <br /> Create your membership
           </h1>
