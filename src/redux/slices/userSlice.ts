@@ -30,7 +30,6 @@ const userSlice = createSlice({
       state[newUser].isAuth = false;
       state[newUser].favorites = [];
       state[newUser].historySearch = [];
-      console.log("НОВЫЙ ЮЗЕР: ", state[newUser])
     },
   },
 });

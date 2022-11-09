@@ -38,9 +38,6 @@ export const SignUp = () => {
       username: values.username,
       email: values.email,
       password: values.password,
-     /*  isAuth: false,
-      favorites: [],
-      historySearch: [], */
     };
 
     dispatch(addUser(newUser));
