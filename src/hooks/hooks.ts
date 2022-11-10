@@ -1,8 +1,9 @@
-import { User } from "../redux/slices/userSlice";
+import { useState, useEffect } from "react";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
+import { User } from "../redux/slices/userSlice";
 import type { AppDispatch, RootState } from "../redux/store/store";
 
-export const useAppDispatch = () => useDispatch<AppDispatch>()
+export const useAppDispatch = () => useDispatch<AppDispatch>();
 
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
@@ -11,10 +12,8 @@ export const useCurrentUser = (): User => {
   let currentUser;
 
   if (users) {
-    console.log(users)
-    currentUser = Object.values(users).find(
-      (obj) => obj.isAuth === true
-    );
+    console.log(users);
+    currentUser = Object.values(users).find((obj) => obj.isAuth === true);
   }
 
   if (currentUser) {
@@ -22,4 +21,20 @@ export const useCurrentUser = (): User => {
   }
 
   return {};
-}
+};
+
+export const useDebounce = (value: string, delay: number): string => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+};
