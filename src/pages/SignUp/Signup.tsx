@@ -42,10 +42,6 @@ export const SignUp = () => {
 
     dispatch(addUser(newUser));
     navigate("/signin");
-
-    console.log(newUser);
-    console.log(addUser(newUser));
-    console.log(dispatch(addUser(newUser)));
   };
 
   const onChange = (value: string, name: string) => {
