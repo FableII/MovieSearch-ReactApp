@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSearchMovieQuery, MovieResponse } from '../../redux/api/moviesApi';
-import './SearchResults.css';
+import { useSearchMovieQuery, IMovieResponse } from '../../redux/api/moviesApi';
+import './MoviesSearchResults.css';
 
-type SearchResultsProps = {
+type MovieSearchResultsProps = {
   searchName: string;
 };
 
-const SearchResults: React.FC<SearchResultsProps> = (props) => {
+const MoviesSearchResults = (props : MovieSearchResultsProps) => {
   const { searchName } = props;
   const { data, error, isLoading, isFetching } = useSearchMovieQuery(searchName);
-  const books = data ?? [];
+  const movies = data ?? [];
 
   if (error) {
     return <div className="app__moviesSection-hint">Error while fetching movies</div>;
@@ -24,16 +24,15 @@ const SearchResults: React.FC<SearchResultsProps> = (props) => {
     return <div className="app__moviesSection-hint">Fetching movies...</div>;
   }
 
-  if (books.length === 0) {
+  if (movies.length === 0) {
     return <div className="app__moviesSection-hint">No movies found</div>;
   }
-  if (books.length >= 1) {
+  if (movies.length >= 1) {
     return (
       <ul className='app__moviesSection-ul'>
-        {books.map((item: MovieResponse) =>
+        {movies.map((item: IMovieResponse) =>
           <li className='app__moviesSection-li' key={item.isbn}>
             <Link to={`${item.name}`}>{item.name}</Link>
-            {item.name}
           </li>
         )}
       </ul>
@@ -44,4 +43,4 @@ const SearchResults: React.FC<SearchResultsProps> = (props) => {
 
 };
 
-export default SearchResults;
+export default MoviesSearchResults;

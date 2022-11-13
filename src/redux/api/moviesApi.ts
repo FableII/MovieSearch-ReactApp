@@ -1,50 +1,47 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export interface MovieResponse {
-  title?: string;
+export interface IMovieResponse {
+  name?: string;
   [propName: string]: any;
 }
-
-const API_KEY = 'fda38699'
-const APIKey = '53c800d'; //тестовый
 
 export const moviesApi = createApi({
   reducerPath: 'moviesApi',
   tagTypes: ['Movies'],
-  baseQuery: fetchBaseQuery({ baseUrl: `http://www.omdbapi.com/` }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://anapioficeandfire.com/api/books/' }),
   endpoints: (build) => ({
-    getAllMovies: build.query<any, void>({ // Record<string, any>[] вместо ANY
-      query: () => ({
-        url: `?apikey=${APIKey}&s=the_witcher`,
-        method: "GET",
-      }),
-      transformResponse: (res: Array<MovieResponse>) => {
-      return res;
-       }
+    getAllMovies: build.query<Record<string, any>[], void>({
+      query: () => '',
     }),
-    getOneMovie: build.query<MovieResponse, string>({
-      query: (title) => ({
-        url: `?apikey=${APIKey}&t=${title}&plot=full`,
+    getOneMovie: build.query<IMovieResponse, string>({
+      query: (name) => ({
+        url: `?name=${name}`,
         method: "GET",
       }),
-      transformResponse: (res: Array<MovieResponse>) => {
-       console.log(res);
-        return res[0];
-      }
+      transformResponse: (res: Array<IMovieResponse>) => res[0]
     }),
-    searchMovie: build.query<MovieResponse, string>({
-      query: (title) => ({
-        url: `?apikey=${APIKey}&s=${title}`,
+    searchMovie: build.query<IMovieResponse, string>({
+      query: (name) => ({
+        url: `?name=${name}`,
         method: "GET",
       }),
-      transformResponse: (res: Array<MovieResponse> | []) => {
-        console.log(res);
-        return res; // НЕ ЗАБЫТЬ ДОБАВИТЬ ФИЛЬТРАЦИЮ
+      transformResponse: (res: Array<IMovieResponse> | []) => {
+        return res
+          .filter((el) => el.name) //СЮДА ОБРАТИТЬ ВНИМАНИЕ
+          .map((el) => {
+            return {
+              name: el.name,
+              authors: el.authors[0],
+              mediaType: el.mediaType,
+              isbn: el.isbn,
+              numberOfPages: el.numberOfPages,
+              publisher: el.publisher,
+              released: el.released
+            };
+          });
       },
     }),
   })
 });
 
 export const { useGetAllMoviesQuery, useGetOneMovieQuery, useSearchMovieQuery } = moviesApi;
-
-

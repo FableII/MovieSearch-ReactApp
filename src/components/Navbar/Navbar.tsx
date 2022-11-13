@@ -25,7 +25,7 @@ export const Navbar = () => {
         {isAuth && (
           <>
             <li className="app__navbar__list-item">
-              <Link to="/search">Search</Link>
+              <Link to="/movies">Search</Link>
             </li>
             <li className="app__navbar__list-item">
               <Link to="/favorites">Favorites</Link>
@@ -47,7 +47,7 @@ export const Navbar = () => {
         ) : (
           <>
             <li className="app__navbar__list-item">
-              <Link to="/signin">Search</Link>
+              <Link to="/movies">Search</Link>
             </li>
             <li className="app__navbar__list-item">
               <Link to="/signin">Favorites</Link>

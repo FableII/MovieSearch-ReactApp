@@ -2,7 +2,7 @@ import "./SearchInput.css";
 
 interface SearchInputProps {
   value: string;
-  placeholder: string;
+  placeholder?: string;
   className?: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }

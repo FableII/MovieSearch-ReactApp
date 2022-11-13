@@ -3,7 +3,7 @@
   height: fit-content;
   min-height: 100vh;
   display: flex;
-  background: rgba(26, 26, 26, 0.85);
+  background-image: url('../../assets/images/NetflixWitcher.jpg');
   padding: 1rem 10rem;
   align-items: center;
   flex-direction: column;
@@ -56,4 +56,9 @@
 
 .app_favorites-empty-p {
   margin-top: 100px;
+  color: white;
+}
+
+.app_favorites-full-p{
+  color: white;
 }

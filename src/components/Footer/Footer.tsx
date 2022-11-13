@@ -15,7 +15,7 @@ export const Footer = () => {
         <Link to="/about">About</Link>
         </li>
         <li className="app__footer__list-item">
-        <Link to="/about">Contacts</Link>
+        <Link to="/contacts">Contacts</Link>
         </li>
       </ul>
       
