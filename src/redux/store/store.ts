@@ -14,14 +14,21 @@ import userSliceReducer from "../slices/userSlice";
 import { checkLoginMiddleware } from "../../middleware/checkLoginMiddleware";
 import { moviesApi } from "../api/moviesApi";
 
+import { moviesAPI } from "../api/API"; // TEST
+
 const rootReducer = combineReducers({
   user: userSliceReducer,
   [moviesApi.reducerPath]: moviesApi.reducer,
+  [moviesAPI.reducerPath]: moviesAPI.reducer, // ТЕСТ
 });
 
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: [
+    moviesApi.reducerPath,
+    moviesAPI.reducerPath // ТЕСТ
+  ]
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -33,7 +40,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat([checkLoginMiddleware, moviesApi.middleware]),
+    }).concat([checkLoginMiddleware, moviesApi.middleware, moviesAPI.middleware]), // ТЕСТ moviesAPI - удалить
 });
 
 export const persistor = persistStore(store);

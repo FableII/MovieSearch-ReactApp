@@ -1,6 +1,20 @@
+/* import { useFetchAllMoviesQuery, useFetchOneMovieQuery } from "../../redux/api/API"; */ // TEST
+/* import { useFetchAllMoviesQuery, useFetchOneMovieQuery } from "../../redux/api/movieApi"; */
 import "./Home.css";
 
 export const Home = () => {
+ /*  const { data } = useFetchAllMoviesQuery('');
+  console.log("useFetchAllMoviesQuery:", data); */
+
+  /* const {data} = useFetchOneMovieQuery('inception');
+  console.log("useFetchOneMovieQuery:", data2); */
+
+ /*  const {data} = useFetchAllMoviesQuery();
+  console.log(data) */
+
+ /*  const {data} = useFetchOneMovieQuery('the_lord');
+  console.log(data) */
+
   return (
     <div className="app__home">
       <h1 className="app__home-header">

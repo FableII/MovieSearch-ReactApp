@@ -1,6 +1,7 @@
 .app__home{
     background-image: url('../../assets/images/NetflixWitcher.jpg');
     background-repeat: no-repeat;
+    background-size: 100vw;
     min-height: 80.5vh; 
     display: flex;
     justify-content: center;

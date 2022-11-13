@@ -1,18 +1,19 @@
 .app_error-boundary {
   width: 100%;
   height: fit-content;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
-  background: rgba(26, 26, 26, 0.85);
+  background-image: url("../../assets/images/NetflixWitcher.jpg");
+  background-size: 100vw;
   padding: 1rem 10rem;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
 }
 
 .app_error-boundary-p {
+  color: #fff;
   margin: 3rem 0;
-  font-family: var(--font-alt);
-  color: var(--color-golden);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-size: 40px;
@@ -20,13 +21,17 @@
 }
 
 .app_error-boundary-button {
-  font-family: var(--font-base);
   padding: 10px;
   width: 200px;
-  border: 1px solid gray;
-  background-color: rgb(193, 193, 193);
+  background-color: #831010;
+  border: none;
+  color: #fff;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
+}
+
+.app_error-boundary-button:hover {
+  background-color: #db0000;
 }

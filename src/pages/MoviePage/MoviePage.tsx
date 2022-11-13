@@ -1,5 +1,6 @@
 import { useParams, useLocation } from "react-router-dom";
-import { useGetOneMovieQuery } from "../../redux/api/moviesApi";
+/* import { useGetOneMovieQuery } from "../../redux/api/moviesApi"; */ //STABLE
+import { useFetchOneMovieQuery } from "../../redux/api/movieApi"; // ТЕСТИМ
 import { useAppDispatch } from "../../hooks/hooks";
 import { toggleFavorite } from "../../redux/slices/userSlice";
 import { Loader } from "../../components/Loader/Loader";
@@ -8,11 +9,17 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import './MoviePage.css';
 
+
 export const MoviePage = () => {
   const location = useLocation();
   const dispatch = useAppDispatch();
   const paramsName: string = useParams().name || '';
-  const { data, isLoading } = useGetOneMovieQuery(paramsName);
+
+/*   const { data, isLoading } = useGetOneMovieQuery(paramsName);  */// STABLE
+
+  const { data, isLoading} = useFetchOneMovieQuery(paramsName); // ТЕСТИМ
+  console.log(data);
+
   const user = useCurrentUser();
   const isInFavorite = user?.favorites?.find((el: { name: string, url: string }) => el.name === paramsName);
   const url = location.pathname;

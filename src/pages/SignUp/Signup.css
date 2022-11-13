@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   background-image: url("../../assets/images/NetflixWitcher.jpg");
+  background-size: 100vw;
 }
 
 .app__signup-form {

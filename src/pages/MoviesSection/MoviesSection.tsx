@@ -1,11 +1,12 @@
 import React, { useState, Suspense } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import { useGetAllMoviesQuery } from "../../redux/api/moviesApi";
+/* import { useGetAllMoviesQuery } from "../../redux/api/moviesApi"; */ //Stable
+import { useFetchAllMoviesQuery } from "../../redux/api/movieApi"; // Тестим
 import { useAppDispatch, useCurrentUser, useDebounce } from "../../hooks/hooks";
+import { SearchInput } from "../../components/SearchInput/SearchInput";
 import { Loader } from "../../components/Loader/Loader";
 import { postHistory } from "../../redux/slices/userSlice";
 import "./MoviesSection.css";
-import { SearchInput } from "../../components/SearchInput/SearchInput";
 
 const MoviesSearchResults = React.lazy(
   () => import("../../components/MoviesSearchResults/MoviesSearchResults")
@@ -15,11 +16,15 @@ export const MoviesSection = () => {
   const dispatch = useAppDispatch();
   const userEmail = useCurrentUser()?.email as string;
   const location = useLocation();
-  const bookName = new URLSearchParams(location.search).get("search");
+  const movieName = new URLSearchParams(location.search).get("search");
   const navigate = useNavigate();
+  //----------------------------------------------------
+  /*   const { data = [], isLoading } = useGetAllMoviesQuery(); */ // STABLE
+  const { data = [], isLoading } = useFetchAllMoviesQuery(); // ТЕСТИМ
+  console.log(data);
+  //----------------------------------------------------
 
-  const { data = [], isLoading } = useGetAllMoviesQuery();
-  const [searchName, setSearchName] = useState(bookName || "");
+  const [searchName, setSearchName] = useState(movieName || "");
   const debouncedSearchName = useDebounce(searchName, 1500);
 
   const onChange = (e: { target: HTMLInputElement }) => {
@@ -36,7 +41,10 @@ export const MoviesSection = () => {
 
   return (
     <div className="app__moviesSection">
-      <h1>Our searchable database includes millions of movies, TV and entertainment programs and cast and crew members. Enjoy!</h1>
+      <h1>
+        Our searchable database includes millions of movies, TV and
+        entertainment programs and cast and crew members. Enjoy!
+      </h1>
       <SearchInput
         placeholder="Search..."
         className="app__moviesSection-input"
@@ -55,8 +63,8 @@ export const MoviesSection = () => {
       ) : (
         <ul className="app__moviesSection-ul">
           {data.map((item) => (
-            <li className="app__moviesSection-li" key={item.isbn}>
-              <Link to={`${item.name}`}>{item.name}</Link>
+            <li className="app__moviesSection-li" key={item.imdbID}>
+              <Link to={`${item.title}`}>{item.title}</Link>
             </li>
           ))}
         </ul>

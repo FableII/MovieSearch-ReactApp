@@ -4,7 +4,7 @@ import './ErrorFallback.css';
 export const ErrorFallback = () => {
   return (
     <section className='app_error-boundary'>
-      <p className='app_error-boundary-p'>Ooops! Looks like something went wrong!</p>
+      <p className='app_error-boundary-p'>Something went wrong!</p>
       <Link to='/'>
         <button className='app_error-boundary-button'>Go to Main Page</button>
       </Link>
