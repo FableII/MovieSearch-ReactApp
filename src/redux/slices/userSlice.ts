@@ -37,7 +37,7 @@ export interface User {
   email?: string;
   password?: string;
   isAuth?: boolean;
-  favorites?: { name: string; url: string }[];
+  favorites?: { name: string; url: string }[]; // СКОРРЕКТИРОВАТЬ !!! (title)
   historySearch?: string[];
 }
 
@@ -63,12 +63,15 @@ const userSlice = createSlice({
       state[newUser].historySearch = [];
     },
 
+    // ИСПРАВИТЬ ОШИБКУ в toggleFavorite !!
     toggleFavorite(state, action) {
       const { name, url, userEmail } = action.payload;
-      const newFavorite = { name, url };
+      const newFavorite = { name, url }; // СЮДА УЖЕ ПРИХОДИТ UNDEFINED
+      console.log("NEW FAVO:" , newFavorite); //ТЕСТ на NAME
+
       const userState = current(state[userEmail]);
       let flagDeletedOrAdd = "";
-
+      console.log("userState!!", userState);
       if (userState?.favorites?.length === 0) {
         flagDeletedOrAdd = "add";
       } else {
@@ -93,6 +96,7 @@ const userSlice = createSlice({
       }
     },
 
+     // ИСПРАВИТЬ ОШИБКУ в deleteFavorite !!
     deleteFavorite(state, action) {
       const { name, userEmail } = action.payload;
       const userState = current(state[userEmail]);

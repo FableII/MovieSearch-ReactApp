@@ -1,7 +1,6 @@
 import React, { useState, Suspense } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-/* import { useGetAllMoviesQuery } from "../../redux/api/moviesApi"; */ //Stable
-import { useFetchAllMoviesQuery } from "../../redux/api/movieApi"; // Тестим
+import { useFetchAllMoviesQuery } from "../../redux/api/movieApi";
 import { useAppDispatch, useCurrentUser, useDebounce } from "../../hooks/hooks";
 import { SearchInput } from "../../components/SearchInput/SearchInput";
 import { Loader } from "../../components/Loader/Loader";
@@ -18,11 +17,9 @@ export const MoviesSection = () => {
   const location = useLocation();
   const movieName = new URLSearchParams(location.search).get("search");
   const navigate = useNavigate();
-  //----------------------------------------------------
-  /*   const { data = [], isLoading } = useGetAllMoviesQuery(); */ // STABLE
-  const { data = [], isLoading } = useFetchAllMoviesQuery(); // ТЕСТИМ
+
+  const { data = [], isLoading } = useFetchAllMoviesQuery();
   console.log(data);
-  //----------------------------------------------------
 
   const [searchName, setSearchName] = useState(movieName || "");
   const debouncedSearchName = useDebounce(searchName, 1500);

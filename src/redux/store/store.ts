@@ -12,22 +12,21 @@ import {
 import storage from "redux-persist/lib/storage";
 import userSliceReducer from "../slices/userSlice";
 import { checkLoginMiddleware } from "../../middleware/checkLoginMiddleware";
-import { moviesApi } from "../api/moviesApi";
-
-import { moviesAPI } from "../api/API"; // TEST
+import { moviesApi } from "../api/moviesApi"; // STABLE
+import { moviesAPI } from "../api/movieApi"; // DEV (SUCCES)
 
 const rootReducer = combineReducers({
   user: userSliceReducer,
-  [moviesApi.reducerPath]: moviesApi.reducer,
-  [moviesAPI.reducerPath]: moviesAPI.reducer, // ТЕСТ
+  [moviesApi.reducerPath]: moviesApi.reducer, // STABLE
+  [moviesAPI.reducerPath]: moviesAPI.reducer, // DEV (SUCCES)
 });
 
 const persistConfig = {
   key: "root",
   storage,
   blacklist: [
-    moviesApi.reducerPath,
-    moviesAPI.reducerPath // ТЕСТ
+    moviesApi.reducerPath, // STABLE
+    moviesAPI.reducerPath // DEV
   ]
 };
 
@@ -40,7 +39,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat([checkLoginMiddleware, moviesApi.middleware, moviesAPI.middleware]), // ТЕСТ moviesAPI - удалить
+    }).concat([checkLoginMiddleware, moviesApi.middleware, moviesAPI.middleware]), // ТЕСТ moviesAPI - DEV
 });
 
 export const persistor = persistStore(store);

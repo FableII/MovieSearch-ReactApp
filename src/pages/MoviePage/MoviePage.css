@@ -11,7 +11,6 @@
 
 .app__moviepage h1 {
   margin: 1rem 0;
-  font-family: var(--font-alt);
   color: white;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -32,13 +31,32 @@
 }
 
 .app__moviepage-infoWrap-info {
-  text-align: center;
-  font-family: var(--font-base);
   list-style: none;
   font-size: 18px;
   margin: 10px 0;
+  letter-spacing: 0.07em;
 }
 
 .app__moviepage-infoWrap-info span {
-  color: rgba(184, 184, 184, 0.827);
+  color: rgba(245, 2, 2, 0.827);
+}
+
+.app__moviepage-favorite{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.app_favorite-button {
+  margin-top: 20px;
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.app_favorite-p {
+  font-size: 20px;
+  letter-spacing: 0.07em;
 }
