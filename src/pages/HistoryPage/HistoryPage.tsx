@@ -4,8 +4,7 @@ import {
   useCurrentUser,
   useAppDispatch,
 } from "../../hooks/hooks";
-import { User } from "../../redux/slices/userSlice";
-import { deleteHistory } from "../../redux/slices/userSlice";
+import { User, deleteHistory } from "../../redux/slices/userSlice";
 import "./HistoryPage.css";
 
 export const HistoryPage = () => {

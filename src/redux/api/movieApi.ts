@@ -1,13 +1,15 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const APIKey = "fda38699"; //закинуть в .env
+
+// -----------------------------Разгрести----->
 export interface MovieResponse {
   Search: Array<MovieSearch[]>;
   totalResults: string;
   Response: string;
 }
 
-export interface MovieSearch {
+export interface MovieSearch { // доработать
   Title: string;
   Year: string;
   imdbID: string;
@@ -15,7 +17,7 @@ export interface MovieSearch {
   Poster: string;
 }
 
-export interface MovieInfo { //разгрести
+export interface MovieInfo { //разгрести 
   Title: string;
   Year: string;
   Rated: string;
@@ -36,6 +38,8 @@ export interface MovieInfo { //разгрести
   Type: string;
   BoxOffice: string;
 }
+
+// <-------------------------Разгрести--------
 
 export const moviesAPI = createApi({
   reducerPath: "movies",

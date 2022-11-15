@@ -2,11 +2,11 @@ import { useFetchMoviesQuery } from "../../redux/api/movieApi";
 import { MovieCard } from "../MovieCard/MovieCard";
 import "./MoviesSearchResults.css";
 
-type MovieSearchResultsProps = {
+type Props = {
   searchName: string;
 };
 
-const MoviesSearchResults = (props: MovieSearchResultsProps) => {
+const MoviesSearchResults = (props: Props) => {
   const { searchName } = props;
   const { data, error, isLoading, isFetching } =
     useFetchMoviesQuery(searchName);
@@ -31,7 +31,7 @@ const MoviesSearchResults = (props: MovieSearchResultsProps) => {
   if (movies.length >= 1) {
     return (
       <section className="app__movies-section">
-        {movies.map((movie: any) => (
+        {movies.map((movie: Record<any,any>) => (
           <MovieCard key={movie.imdbID} {...movie} />
         ))}
       </section>

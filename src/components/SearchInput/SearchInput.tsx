@@ -1,13 +1,13 @@
 import "./SearchInput.css";
 
-interface SearchInputProps {
+interface Props {
   value: string;
   placeholder?: string;
   className?: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-export const SearchInput = (props: SearchInputProps) => {
+export const SearchInput = (props: Props) => {
   const { onChange, ...inputProps } = props;
 
   return (

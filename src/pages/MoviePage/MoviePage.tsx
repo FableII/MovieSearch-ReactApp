@@ -1,9 +1,8 @@
 import { useParams, useLocation } from "react-router-dom";
+import { useAppDispatch, useCurrentUser } from "../../hooks/hooks";
 import { useFetchOneMovieQuery } from "../../redux/api/movieApi";
-import { useAppDispatch } from "../../hooks/hooks";
 import { toggleFavorite } from "../../redux/slices/userSlice";
 import { Loader } from "../../components/Loader/Loader";
-import { useCurrentUser } from "../../hooks/hooks";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./MoviePage.css";

@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-import './MovieCard.css';
+import { Link } from 'react-router-dom';
 import { Button } from '../Button/Button';
+import './MovieCard.css';
 
 export const MovieCard = (props: Record<any, any>) => {
   const {

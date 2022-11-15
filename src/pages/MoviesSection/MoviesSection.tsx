@@ -58,7 +58,7 @@ export const MoviesSection = () => {
         <Loader />
       ) : (
         <section className="app__movies-section">
-          {data.map((movie: any) => (
+          {data.map((movie: Record<any,any>) => (
             <MovieCard key={movie.itemIDB} {...movie} />
           ))}
         </section>

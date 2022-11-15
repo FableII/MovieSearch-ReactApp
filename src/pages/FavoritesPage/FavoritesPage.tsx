@@ -1,10 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { useAppDispatch } from "../../hooks/hooks";
-import { deleteFavorite } from "../../redux/slices/userSlice";
+import { useAppDispatch, useAppSelector, useCurrentUser} from "../../hooks/hooks";
+import { User, deleteFavorite } from "../../redux/slices/userSlice";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { User } from "../../redux/slices/userSlice";
-import { useAppSelector, useCurrentUser } from "../../hooks/hooks";
 import "./FavoritesPage.css";
 
 export const FavoritesPage = () => {
