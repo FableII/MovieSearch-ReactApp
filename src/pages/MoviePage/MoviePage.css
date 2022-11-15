@@ -3,7 +3,7 @@
   height: fit-content;
   min-height: 100vh;
   display: flex;
-  background-image: url('../../assets/images/NetflixWitcher.jpg');
+  background-image: url("../../assets/images/NetflixWitcher.jpg");
   padding: 1rem 10rem;
   align-items: center;
   flex-direction: column;
@@ -13,7 +13,6 @@
   margin: 1rem 0;
   color: white;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
   font-size: 40px;
   text-align: center;
 }
@@ -30,33 +29,50 @@
   border-radius: 10px;
 }
 
+.app__moviepage-infoWrap-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.app__moviepage-infoWrap-infos {
+  margin-left: 40px;
+}
+
 .app__moviepage-infoWrap-info {
   list-style: none;
   font-size: 18px;
-  margin: 10px 0;
+  margin: 5px 0;
   letter-spacing: 0.07em;
 }
 
 .app__moviepage-infoWrap-info span {
-  color: rgba(245, 2, 2, 0.827);
+  color: rgba(255, 0, 0, 0.508);
 }
 
-.app__moviepage-favorite{
+.app__moviepage-favorite {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
 .app_favorite-button {
-  margin-top: 20px;
-  width: 300px;
+  margin-bottom: 15px;
+  width: 500px;
   display: flex;
-  justify-content: space-around;
+  justify-content: end;
   align-items: center;
+  cursor: pointer;
+  color: rgba(255, 0, 0, 0.508);
 }
 
 .app_favorite-p {
+  margin-right: 20px;
   font-size: 20px;
   letter-spacing: 0.07em;
+}
+
+.app__moviepage-infoWrap-poster{
+  display: flex;
+  justify-content: center;
+  align-items:center;
 }

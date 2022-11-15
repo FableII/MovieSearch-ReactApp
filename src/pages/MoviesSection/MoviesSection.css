@@ -55,3 +55,12 @@
 .app__moviesSection-input:hover {
   background-color: rgb(233, 233, 233);
 }
+
+.app__movies-section {
+  padding: 30px 30px;
+  border-radius: 10px;
+  background-color: rgba(61, 61, 61, 0.827);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
