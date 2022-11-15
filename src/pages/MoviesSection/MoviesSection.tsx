@@ -34,7 +34,7 @@ export const MoviesSection = () => {
       dispatch(postHistory({ url, userEmail }));
       navigate(`?search=${debouncedSearchName}`);
     }
-  }, [debouncedSearchName, location, searchName.length, dispatch, navigate, userEmail]);
+  }, [debouncedSearchName]);
 
   return (
     <div className="app__moviesSection">
