@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './MovieCard.css';
 import { Button } from '../Button/Button';
 
-export const MovieCard = (props: Record<any, any>) => { // ОБНОВИТЬ ТИП ДАННЫХ RECORD
+export const MovieCard = (props: Record<any, any>) => {
   const {
     poster,
     imdbID,
@@ -27,4 +27,5 @@ MovieCard.propTypes = {
   props: PropTypes.objectOf(PropTypes.string),
   imdbID: PropTypes.string,
   Poster: PropTypes.string,
+  Title: PropTypes.string,
 }
