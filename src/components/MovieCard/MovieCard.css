@@ -1,0 +1,26 @@
+.app__movie-item{
+  margin-bottom: 50px;
+}
+
+.app__movie-image {
+  width: 200px;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  padding: 0px 0px 150% 0px;
+  position: relative;
+}
+
+.app__movie-image img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  transition: 0.4s ease;
+  color: #ccc;
+}
+
+.app__movie-item img:hover {
+  transform: scale(1.1);
+}

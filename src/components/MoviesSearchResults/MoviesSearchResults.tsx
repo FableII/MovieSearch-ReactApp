@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { useFetchMoviesQuery } from "../../redux/api/movieApi";
+import { MovieCard } from "../MovieCard/MovieCard";
 import "./MoviesSearchResults.css";
 
 type MovieSearchResultsProps = {
@@ -31,17 +31,11 @@ const MoviesSearchResults = (props: MovieSearchResultsProps) => {
   }
   if (movies.length >= 1) {
     return (
-      <ul className="app__moviesSection-ul">
-        {movies.map(
-          (
-            item: any // УКАЗАТЬ ИНТЕРФЕЙС
-          ) => (
-            <li className="app__moviesSection-li" key={item.imdbID}>
-              <Link to={`${item.title}`}>{item.title}</Link>
-            </li>
-          )
-        )}
-      </ul>
+      <section className="app__movies-section">
+        {movies.map((movie: any) => (
+          <MovieCard key={movie.imdbID} {...movie} />
+        ))}
+      </section>
     );
   }
 

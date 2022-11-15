@@ -4,7 +4,7 @@
   min-height: 100vh;
   display: flex;
   background-image: url("../../assets/images/NetflixWitcher.jpg");
-  background-size: 100vw;
+  background-size: 140vw;
   padding: 1rem 10rem;
   align-items: center;
   flex-direction: column;
@@ -47,12 +47,6 @@
   border-radius: 10px;
 }
 
-.app__moviesSection-li {
-  list-style: none;
-  font-size: 18px;
-  margin: 10px 0;
-  transition: 0.4s;
-}
 
 .app__moviesSection-input:focus {
   outline: none;

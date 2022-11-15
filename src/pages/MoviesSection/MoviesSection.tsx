@@ -1,11 +1,12 @@
 import React, { useState, Suspense } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useFetchAllMoviesQuery } from "../../redux/api/movieApi";
 import { useAppDispatch, useCurrentUser, useDebounce } from "../../hooks/hooks";
 import { SearchInput } from "../../components/SearchInput/SearchInput";
 import { Loader } from "../../components/Loader/Loader";
 import { postHistory } from "../../redux/slices/userSlice";
 import "./MoviesSection.css";
+import { MovieCard } from "../../components/MovieCard/MovieCard";
 
 const MoviesSearchResults = React.lazy(
   () => import("../../components/MoviesSearchResults/MoviesSearchResults")
@@ -58,13 +59,11 @@ export const MoviesSection = () => {
       ) : isLoading ? (
         <Loader />
       ) : (
-        <ul className="app__moviesSection-ul">
-          {data.map((item) => (
-            <li className="app__moviesSection-li" key={item.imdbID}>
-              <Link to={`${item.title}`}>{item.title}</Link>
-            </li>
+        <section className="app__movies-section">
+          {data.map((movie: any) => (
+            <MovieCard key={movie.itemIDB} {...movie} />
           ))}
-        </ul>
+        </section>
       )}
     </div>
   );
