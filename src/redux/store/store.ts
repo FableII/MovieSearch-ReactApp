@@ -22,9 +22,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: [
-    moviesAPI.reducerPath
-  ]
+  blacklist: [moviesAPI.reducerPath],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

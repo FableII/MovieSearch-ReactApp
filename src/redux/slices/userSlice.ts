@@ -66,11 +66,10 @@ const userSlice = createSlice({
     toggleFavorite(state, action) {
       const { name, url, userEmail } = action.payload;
       const newFavorite = { name, url };
-      console.log("NEW FAVO:", newFavorite);
 
       const userState = current(state[userEmail]);
       let flagDeletedOrAdd = "";
-      console.log("userState!!", userState);
+
       if (userState?.favorites?.length === 0) {
         flagDeletedOrAdd = "add";
       } else {

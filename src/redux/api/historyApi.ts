@@ -7,7 +7,7 @@ export const historyApi = {
     new Promise<User>((resolve, reject) => {
       setTimeout(() => {
         if (!currentUser.email) {
-          reject('User does not exist')
+          reject("User does not exist");
         }
 
         let historySearchCopy;
@@ -17,23 +17,22 @@ export const historyApi = {
           historySearchCopy?.push(url);
         }
 
-        resolve({ currentUser, historySearchCopy })
+        resolve({ currentUser, historySearchCopy });
       }, delay);
     }),
-
 
   get: (currentUser: User) =>
-    new Promise<{ currentUser: User, links: string[] }>((resolve, reject) => {
+    new Promise<{ currentUser: User; links: string[] }>((resolve, reject) => {
       setTimeout(() => {
-        currentUser.historySearch && resolve({ currentUser, links: currentUser.historySearch })
+        currentUser.historySearch &&
+          resolve({ currentUser, links: currentUser.historySearch });
       }, delay);
     }),
-
 
   delete: (currentUser: User) =>
     new Promise<{ currentUser: User }>((resolve, reject) => {
       setTimeout(() => {
-        currentUser.historySearch && resolve({ currentUser })
+        currentUser.historySearch && resolve({ currentUser });
       }, delay);
     }),
 };

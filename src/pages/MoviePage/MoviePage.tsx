@@ -12,15 +12,12 @@ export const MoviePage = () => {
   const location = useLocation();
   const dispatch = useAppDispatch();
   const paramsName: string = useParams().name || "";
-
   const { data, isLoading } = useFetchOneMovieQuery(paramsName);
-  console.log(data);
   const user = useCurrentUser();
+
   const isInFavorite = user?.favorites?.find(
     (el: { name: string; url: string }) => el.name === paramsName
   );
-  console.log("isInFavorite", isInFavorite);
-
   const url = location.pathname;
 
   const toggleFavorites = () => {
@@ -46,21 +43,27 @@ export const MoviePage = () => {
             <img src={data?.poster} alt={data?.title} />
           </div>
           <div className="app__moviepage-infoWrap-infos">
-          <div className="app__moviepage-favorite">
-          {user?.email ? (
-            isInFavorite ? (
-              <div className="app_favorite-button" onClick={toggleFavorites}>
-                <p className="app_favorite-p">Delete from Favorites</p>
-                <FavoriteIcon />
-              </div>
-            ) : (
-              <div className="app_favorite-button" onClick={toggleFavorites}>
-                <p className="app_favorite-p">Add to Favorites</p>
-                <FavoriteBorderIcon />
-              </div>
-            )
-          ) : null}
-        </div> 
+            <div className="app__moviepage-favorite">
+              {user?.email ? (
+                isInFavorite ? (
+                  <div
+                    className="app_favorite-button"
+                    onClick={toggleFavorites}
+                  >
+                    <p className="app_favorite-p">Delete from Favorites</p>
+                    <FavoriteIcon />
+                  </div>
+                ) : (
+                  <div
+                    className="app_favorite-button"
+                    onClick={toggleFavorites}
+                  >
+                    <p className="app_favorite-p">Add to Favorites</p>
+                    <FavoriteBorderIcon />
+                  </div>
+                )
+              ) : null}
+            </div>
             <div className="app__moviepage-infoWrap-info">
               <span>Title:</span> {data?.title}
             </div>
@@ -90,55 +93,7 @@ export const MoviePage = () => {
             </div>
           </div>
         </div>
-        {/* <div className="app__moviepage-favorite">
-          {user?.email ? (
-            isInFavorite ? (
-              <div className="app_favorite-button" onClick={toggleFavorites}>
-                <p className="app_favorite-p">Delete from Favorites</p>
-                <FavoriteIcon />
-              </div>
-            ) : (
-              <div className="app_favorite-button" onClick={toggleFavorites}>
-                <p className="app_favorite-p">Add to Favorites</p>
-                <FavoriteBorderIcon />
-              </div>
-            )
-          ) : null}
-        </div> */}
       </div>
     </div>
   );
 };
-// STABLE RENDER
-/* 
-
- */
-
-/* 
-<section className='details'
-      style={{ backgroundImage: `url(${data.poster})` }}>
-      <div className='container details-container'>
-    
-          <div className='details__info'>
-            <div className='details__controls'>
-              <div className='details__buttons'>
-              </div>
-            </div>
-            <h2 className='details__title'>{data.title}</h2>
-            <div className='details__describe'>
-              <i>{data.runtime} / {data.genre}</i>
-            </div>
-            <div className='details__block'><span>Cast:</span> {data.actors}</div>
-            <div className='details__block'><span>Country:</span> {data.country}</div>
-            <div className='details__block'><span>Director:</span> {data.director}</div>
-            <div className='details__block'><span>Year:</span> {data.year}</div>
-            <div className='details__block'><span>Released:</span> {data.released}</div>
-            <div className='details__block'><span>BoxOffice:</span> {data.boxOffice}</div>
-            <div className='details__block'><span>imdbRating:</span> {data.imdbRating}</div>
-            <div className='details__block'><span>Plot:</span> {data.plot}</div>
-          </div>
-          <div className='details__image'>
-            <img src={data.poster} alt={data.title} />
-          </div>
-        </div>
-    </section > */

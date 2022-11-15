@@ -1,12 +1,12 @@
 import React, { useState, Suspense } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useFetchAllMoviesQuery } from "../../redux/api/movieApi";
 import { useAppDispatch, useCurrentUser, useDebounce } from "../../hooks/hooks";
+import { useFetchAllMoviesQuery } from "../../redux/api/movieApi";
+import { postHistory } from "../../redux/slices/userSlice";
 import { SearchInput } from "../../components/SearchInput/SearchInput";
 import { Loader } from "../../components/Loader/Loader";
-import { postHistory } from "../../redux/slices/userSlice";
-import "./MoviesSection.css";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
+import "./MoviesSection.css";
 
 const MoviesSearchResults = React.lazy(
   () => import("../../components/MoviesSearchResults/MoviesSearchResults")
@@ -20,8 +20,6 @@ export const MoviesSection = () => {
   const navigate = useNavigate();
 
   const { data = [], isLoading } = useFetchAllMoviesQuery();
-  console.log(data);
-
   const [searchName, setSearchName] = useState(movieName || "");
   const debouncedSearchName = useDebounce(searchName, 1500);
 

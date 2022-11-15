@@ -71,8 +71,8 @@
   letter-spacing: 0.07em;
 }
 
-.app__moviepage-infoWrap-poster{
+.app__moviepage-infoWrap-poster {
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }

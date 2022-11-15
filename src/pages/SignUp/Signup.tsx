@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FormInput } from "../../components/FormInput/FormInput";
-import { addUser } from "../../redux/slices/userSlice";
 import { useAppDispatch } from "../../hooks/hooks";
+import { addUser } from "../../redux/slices/userSlice";
 import { SIGNUP_INPUTS } from "../../utils/constants/constants";
-import "./SignUp.css";
+import { FormInput } from "../../components/FormInput/FormInput";
 import { Button } from "../../components/Button/Button";
+import "./SignUp.css";
 
 export const SignUp = () => {
   const [values, setValues] = useState({

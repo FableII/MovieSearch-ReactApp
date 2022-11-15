@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const APIKey = "fda38699";
+const APIKey = "fda38699"; //закинуть в .env
 export interface MovieResponse {
   Search: Array<MovieSearch[]>;
   totalResults: string;
@@ -15,7 +15,7 @@ export interface MovieSearch {
   Poster: string;
 }
 
-export interface MovieInfo {
+export interface MovieInfo { //разгрести
   Title: string;
   Year: string;
   Rated: string;
@@ -82,7 +82,7 @@ export const moviesAPI = createApi({
         const transformedData = [];
 
         for (let i = 0; i < data.Search.length; i++) {
-          let obj: Record<string, MovieSearch>= {};
+          let obj: Record<string, MovieSearch> = {};
           for (let key in data.Search[i]) {
             obj[key[0].toLowerCase() + key.slice(1)] = data.Search[i][key];
           }
