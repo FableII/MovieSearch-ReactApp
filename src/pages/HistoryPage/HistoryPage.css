@@ -29,7 +29,7 @@
 }
 
 .app__history-wrap {
-  width: 80%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,10 +46,11 @@
   font-size: 18px;
   margin: 10px 0;
   transition: 0.4s;
+  color: whitesmoke;
 }
 
 .app__history-clear {
-  width: 130px;
+  width: 400px;
   border: none;
   background-color: #831010;
   color: white;
@@ -63,4 +64,10 @@
 
 .app__history-clear:hover {
   background-color: #db0000;
+}
+
+.app__history-a:hover {
+  text-decoration: underline;
+  color: rgba(255, 0, 0, 0.508);
+  transition: .5s;
 }

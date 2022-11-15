@@ -11,7 +11,7 @@ const MoviesSearchResults = (props: MovieSearchResultsProps) => {
   const { data, error, isLoading, isFetching } =
     useFetchMoviesQuery(searchName);
   const movies = data ?? [];
-
+  console.log(movies);
   if (error) {
     return (
       <div className="app__moviesSection-hint">Error while fetching movies</div>
@@ -25,8 +25,7 @@ const MoviesSearchResults = (props: MovieSearchResultsProps) => {
   if (isFetching) {
     return <div className="app__moviesSection-hint">Fetching movies...</div>;
   }
-
-  if (movies === undefined) {
+  if (movies.length === 0) {
     return <div className="app__moviesSection-hint">No movies found</div>;
   }
   if (movies.length >= 1) {

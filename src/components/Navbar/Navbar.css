@@ -29,3 +29,9 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.app__navbar__list-item:hover {
+  text-decoration: underline;
+  color: rgba(255, 0, 0, 0.508);
+  transition: 0.5s;
+}
