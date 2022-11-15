@@ -1,8 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const APIKey = "fda38699";
+export interface MovieResponse {
+  Search: Array<MovieSearch[]>;
+  totalResults: string;
+  Response: string;
+}
 
-export interface ISearch {
+export interface MovieSearch {
   Title: string;
   Year: string;
   imdbID: string;
@@ -10,10 +15,26 @@ export interface ISearch {
   Poster: string;
 }
 
-export interface MovieResponse {
-  Search: ISearch[];
-  totalResults: string;
-  Response: string;
+export interface MovieInfo {
+  Title: string;
+  Year: string;
+  Rated: string;
+  Released: string;
+  Runtime: string;
+  Genre: string;
+  Director: string;
+  Writer: string;
+  Actors: string;
+  Plot: string;
+  Language: string;
+  Country: string;
+  Awards: string;
+  Poster: string;
+  Metascore: string;
+  imdbRating: string;
+  imdbID: string;
+  Type: string;
+  BoxOffice: string;
 }
 
 export const moviesAPI = createApi({
@@ -24,11 +45,11 @@ export const moviesAPI = createApi({
       query: () => ({
         url: `?apikey=${APIKey}&s=the_lord`,
       }),
-      transformResponse: (data: Record<any, any>) => {
+      transformResponse: (data: MovieResponse) => {
         const transformedData = [];
 
         for (let i = 0; i < data.Search.length; i++) {
-          let obj: Record<any, any> = {};
+          let obj: Record<string, MovieSearch> = {};
           for (let key in data.Search[i]) {
             obj[key[0].toLowerCase() + key.slice(1)] = data.Search[i][key];
           }
@@ -43,8 +64,8 @@ export const moviesAPI = createApi({
       query: (query) => ({
         url: `?apikey=${APIKey}&t=${query}&plot=full`,
       }),
-      transformResponse: (data: Array<ISearch>) => {
-        const transformedData: any = {};
+      transformResponse: (data: Array<MovieInfo>) => {
+        const transformedData: Record<string, MovieInfo> = {};
 
         for (let key in data) {
           transformedData[key.toLowerCase()] = data[key];
@@ -57,11 +78,11 @@ export const moviesAPI = createApi({
       query: (query) => ({
         url: `?apikey=${APIKey}&s=${query}`,
       }),
-      transformResponse: (data: any) => {
+      transformResponse: (data: MovieResponse) => {
         const transformedData = [];
 
         for (let i = 0; i < data.Search.length; i++) {
-          let obj: any = {};
+          let obj: Record<string, MovieSearch>= {};
           for (let key in data.Search[i]) {
             obj[key[0].toLowerCase() + key.slice(1)] = data.Search[i][key];
           }

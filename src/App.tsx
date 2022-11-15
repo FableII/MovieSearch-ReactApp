@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ErrorBoundary } from 'react-error-boundary';
+import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "./components/ErrorFallback/ErrorFallback";
 import { Footer } from "./components/Footer/Footer";
 import { Navbar } from "./components/Navbar/Navbar";
@@ -23,14 +23,18 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/movies" element={<MoviesSection />} />
-          <Route path="/movies/:name" element={
-          <ErrorBoundary fallback={<ErrorFallback />}>
-            <MoviePage />
-          </ErrorBoundary>} />
+          <Route
+            path="/movies/:name"
+            element={
+              <ErrorBoundary fallback={<ErrorFallback />}>
+                <MoviePage />
+              </ErrorBoundary>
+            }
+          />
           <Route element={<ProtectedRoute />}>
-          <Route path='/favorites' element={<FavoritesPage />} />
-          <Route path='/history' element={<HistoryPage />} />
-        </Route>
+            <Route path="/favorites" element={<FavoritesPage />} />
+            <Route path="/history" element={<HistoryPage />} />
+          </Route>
         </Routes>
         <Footer />
       </Router>

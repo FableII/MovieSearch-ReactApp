@@ -38,7 +38,6 @@ export const Navbar = () => {
 
         {isAuth ? (
           <>
-            
             <li onClick={logout} className="app__navbar__list-item logout">
               Log Out
             </li>

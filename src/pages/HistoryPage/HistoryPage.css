@@ -3,7 +3,7 @@
   height: fit-content;
   min-height: 100vh;
   display: flex;
-  background-image: url('../../assets/images/NetflixWitcher.jpg');
+  background-image: url("../../assets/images/NetflixWitcher.jpg");
   background-size: 100vw;
   padding: 1rem 10rem;
   align-items: center;
@@ -13,7 +13,6 @@
 .app__history-h1 {
   width: 80%;
   text-align: center;
-  font-family: var(--font-alt);
   color: white;
   font-size: 30px;
   font-weight: normal;
@@ -23,7 +22,6 @@
 .app__history-empty-p {
   width: 80%;
   text-align: center;
-  font-family: var(--font-alt);
   color: white;
   font-size: 30px;
   margin: 10px;
@@ -32,7 +30,6 @@
 
 .app__history-wrap {
   width: 80%;
-  color: var(--color-white);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,15 +42,10 @@
 .app__history-a {
   display: flex;
   flex-direction: row;
-  font-family: var(--font-base);
   list-style: none;
   font-size: 18px;
   margin: 10px 0;
-  transition: .4s;
-}
-
-.app__history-a:hover {
-  border-bottom: 1px solid var(--color-golden);
+  transition: 0.4s;
 }
 
 .app__history-clear {
@@ -62,11 +54,10 @@
   background-color: #831010;
   color: white;
   font-size: 16px;
-  font-family: var(--font-base);
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
   margin-bottom: 15px;
 }
 

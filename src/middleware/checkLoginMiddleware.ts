@@ -1,23 +1,26 @@
-import { RootState } from '../redux/store/store';
+import { RootState } from "../redux/store/store";
 import { Middleware } from "redux";
 
-export const checkLoginMiddleware: Middleware = (store) => (next) => (action) => {
-  let result;
-  const currentStore: RootState = store.getState();
+export const checkLoginMiddleware: Middleware =
+  (store) => (next) => (action) => {
+    let result;
+    const currentStore: RootState = store.getState();
 
-  if (action.type === "user/addUser") {
-    const emailUsed = Object.values(currentStore.user).find(
-      (user) => user.email === action.payload.email
-    );
+    if (action.type === "user/addUser") {
+      const emailUsed = Object.values(currentStore.user).find(
+        (user) => user.email === action.payload.email
+      );
 
-    if (emailUsed) {
-      alert("Email address already exists! Please, try again using different email.");
+      if (emailUsed) {
+        alert(
+          "Email address already exists! Please, try again using different email."
+        );
 
-      return result;
+        return result;
+      }
     }
-  }
 
-  result = next(action);
+    result = next(action);
 
-  return result;
-};
+    return result;
+  };

@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-import './ErrorFallback.css';
+import { Link } from "react-router-dom";
+import "./ErrorFallback.css";
 
 export const ErrorFallback = () => {
   return (
-    <section className='app_error-boundary'>
-      <p className='app_error-boundary-p'>Something went wrong!</p>
-      <Link to='/'>
-        <button className='app_error-boundary-button'>Go to Main Page</button>
+    <section className="app_error-boundary">
+      <p className="app_error-boundary-p">Something went wrong!</p>
+      <Link to="/">
+        <button className="app_error-boundary-button">Go to Main Page</button>
       </Link>
     </section>
   );

@@ -1,7 +1,5 @@
 .app__moviesSection-hint {
   width: 80%;
-  color: var(--color-white);
-  font-family: var(--font-base);
   display: flex;
   flex-direction: column;
   align-items: center;
