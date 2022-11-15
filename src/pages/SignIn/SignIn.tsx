@@ -5,6 +5,7 @@ import { signIn } from "../../redux/slices/userSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { LOGIN_INPUTS } from "../../utils/constants/constants";
 import "./SignIn.css";
+import { Button } from "../../components/Button/Button";
 
 export const SignIn = () => {
   const [values, setValues] = useState({
@@ -63,7 +64,7 @@ export const SignIn = () => {
               />
             ))}
           </div>
-          <button className="app__form-button">Login</button>
+          <Button buttonName="Login"/>
         </form>
         <div className="app__signin-redirect">
           <Link to="/signup">

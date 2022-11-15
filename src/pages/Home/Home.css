@@ -1,15 +1,16 @@
-.app__home{
-    background-image: url('../../assets/images/NetflixWitcher.jpg');
-    background-repeat: no-repeat;
-    background-size: 100vw;
-    min-height: 80.5vh; 
-    display: flex;
-    justify-content: center;
+.app__home {
+  background-image: url("../../assets/images/NetflixWitcher.jpg");
+  background-size: 100vw;
+  min-height: 80.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.app__home-header{
-    width: 600px;
-    margin-top: 100px;
-    color: #fff;
-    text-align: center;
+.app__home-header {
+  width: 600px;
+  margin-top: 100px;
+  color: #fff;
+  text-align: center;
 }
