@@ -6,6 +6,7 @@ import { postHistory } from "../../redux/slices/userSlice";
 import { SearchInput } from "../../components/SearchInput/SearchInput";
 import { Loader } from "../../components/Loader/Loader";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
+import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
 import "./MoviesSection.css";
 
 const MoviesSearchResults = React.lazy(
@@ -37,18 +38,18 @@ export const MoviesSection = () => {
 
   return (
     <div className="app__moviesSection">
-      <h1>
-        Our searchable database includes millions of movies, TV and
-        entertainment programs and cast and crew members. Enjoy!
-      </h1>
+      <SectionHeader
+        text={
+          "Our searchable database includes millions of movies, TV and entertainment programs and cast and crew members. Enjoy!"
+        }
+      />
+
       <SearchInput
-        placeholder="Search..."
-        className="app__moviesSection-input"
+        placeholder="Dynamic search..."
         value={searchName}
         onChange={onChange}
       />
-
-      <h2>Movies found:</h2>
+      <SectionHeader text={"Movies found:"} />
 
       {debouncedSearchName ? (
         <Suspense fallback={<Loader />}>
@@ -58,7 +59,7 @@ export const MoviesSection = () => {
         <Loader />
       ) : (
         <section className="app__movies-section">
-          {data.map((movie: Record<any,any>) => (
+          {data.map((movie: Record<any, any>) => (
             <MovieCard key={movie.itemIDB} {...movie} />
           ))}
         </section>
