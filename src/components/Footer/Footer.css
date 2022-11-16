@@ -1,13 +1,20 @@
 .app__footer {
-    margin: 25px 0px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  margin: 25px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .app__footer__list {
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+
+.app__footer__list-item:hover {
+  text-decoration: underline;
+  color: rgba(255, 0, 0, 0.508);
+  transition: 0.5s;
 }

@@ -1,10 +1,15 @@
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useCurrentUser } from "../../hooks/hooks";
 import { logOut } from "../../redux/slices/userSlice";
 import logo from "../../assets/logo/NetflixLogo.webp";
+import { ThemeContext } from "../ThemeProvider";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import "./Navbar.css";
 
 export const Navbar = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const dispatch = useAppDispatch();
   const { isAuth, username, email } = useCurrentUser() || {};
 
@@ -19,13 +24,24 @@ export const Navbar = () => {
         <Link to="/">
           <img className="app__logo" src={logo} alt="logo" />
         </Link>
+        {theme === "light" ? (
+          <div onClick={toggleTheme} className="mode__wrap mode__wrap-light">
+            <DarkModeIcon className="mode-icon" />
+            <div>Dark mode</div>
+          </div>
+        ) : (
+          <div onClick={toggleTheme} className="mode__wrap mode__wrap-night">
+            <LightModeIcon className="mode-icon" />
+            <div>Light mode</div>
+          </div>
+        )}
       </div>
 
       <ul className="app__navbar__list">
         {isAuth && (
           <>
             <li className="app__navbar__list-item">
-              <Link to="/search">Search</Link>
+              <Link to="/movies">Search</Link>
             </li>
             <li className="app__navbar__list-item">
               <Link to="/favorites">Favorites</Link>
@@ -38,7 +54,6 @@ export const Navbar = () => {
 
         {isAuth ? (
           <>
-            
             <li onClick={logout} className="app__navbar__list-item logout">
               Log Out
             </li>
@@ -47,7 +62,7 @@ export const Navbar = () => {
         ) : (
           <>
             <li className="app__navbar__list-item">
-              <Link to="/signin">Search</Link>
+              <Link to="/movies">Search</Link>
             </li>
             <li className="app__navbar__list-item">
               <Link to="/signin">Favorites</Link>

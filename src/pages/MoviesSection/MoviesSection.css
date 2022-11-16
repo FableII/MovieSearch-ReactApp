@@ -1,0 +1,66 @@
+.app__moviesSection {
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+  display: flex;
+  background-image: url("../../assets/images/NetflixWitcher.jpg");
+  background-size: 140vw;
+  padding: 1rem 10rem;
+  align-items: center;
+  flex-direction: column;
+}
+
+.app__moviesSection-input {
+  min-width: 900px;
+  padding: 15px;
+  margin: 30px 0px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.app__moviesSection h1 {
+  margin: 1rem 0;
+  color: #fff;
+  letter-spacing: 0.04em;
+  font-size: 30px;
+  text-align: center;
+}
+
+.app__moviesSection h2 {
+  margin: 1rem 0;
+  color: #fff;
+  letter-spacing: 0.04em;
+  font-size: 30px;
+  text-align: center;
+}
+
+.app__moviesSection-ul {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(61, 61, 61, 0.827);
+  padding: 30px 60px;
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+
+.app__moviesSection-input:focus {
+  outline: none;
+}
+
+.app__moviesSection-input:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.app__movies-section {
+  padding: 30px 30px;
+  border-radius: 10px;
+  background-color: rgba(61, 61, 61, 0.827);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

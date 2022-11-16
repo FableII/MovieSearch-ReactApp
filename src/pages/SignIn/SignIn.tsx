@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FormInput } from "../../components/FormInput/FormInput";
-import { signIn } from "../../redux/slices/userSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { signIn } from "../../redux/slices/userSlice";
 import { LOGIN_INPUTS } from "../../utils/constants/constants";
+import { FormInput } from "../../components/FormInput/FormInput";
+import { Button } from "../../components/Button/Button";
 import "./SignIn.css";
 
 export const SignIn = () => {
@@ -63,7 +64,7 @@ export const SignIn = () => {
               />
             ))}
           </div>
-          <button className="app__form-button">Login</button>
+          <Button buttonName="Login" />
         </form>
         <div className="app__signin-redirect">
           <Link to="/signup">

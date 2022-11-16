@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   background-image: url("../../assets/images/NetflixWitcher.jpg");
+  background-size: 100vw;
 }
 
 .app__signin-form {

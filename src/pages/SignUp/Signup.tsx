@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FormInput } from "../../components/FormInput/FormInput";
-import { addUser } from "../../redux/slices/userSlice";
 import { useAppDispatch } from "../../hooks/hooks";
+import { addUser } from "../../redux/slices/userSlice";
 import { SIGNUP_INPUTS } from "../../utils/constants/constants";
+import { FormInput } from "../../components/FormInput/FormInput";
+import { Button } from "../../components/Button/Button";
 import "./SignUp.css";
 
 export const SignUp = () => {
@@ -42,10 +43,6 @@ export const SignUp = () => {
 
     dispatch(addUser(newUser));
     navigate("/signin");
-
-    console.log(newUser);
-    console.log(addUser(newUser));
-    console.log(dispatch(addUser(newUser)));
   };
 
   const onChange = (value: string, name: string) => {
@@ -76,7 +73,7 @@ export const SignUp = () => {
               />
             ))}
           </div>
-          <button className="app__form-button">Submit</button>
+          <Button buttonName="Submit"/>
         </form>
         <div className="app__signup-redirect">
           <p className="app__signup-redirect-p">

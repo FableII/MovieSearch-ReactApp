@@ -1,0 +1,73 @@
+.app__history {
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+  display: flex;
+  background-image: url("../../assets/images/NetflixWitcher.jpg");
+  background-size: 100vw;
+  padding: 1rem 10rem;
+  align-items: center;
+  flex-direction: column;
+}
+
+.app__history-h1 {
+  width: 80%;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-weight: normal;
+  margin: 10px;
+}
+
+.app__history-empty-p {
+  width: 80%;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  margin: 10px;
+  margin-top: 100px;
+}
+
+.app__history-wrap {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(61, 61, 61, 0.827);
+  padding: 30px 60px;
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+.app__history-a {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  font-size: 18px;
+  margin: 10px 0;
+  transition: 0.4s;
+  color: whitesmoke;
+}
+
+.app__history-clear {
+  width: 400px;
+  border: none;
+  background-color: #831010;
+  color: white;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 15px;
+}
+
+.app__history-clear:hover {
+  background-color: #db0000;
+}
+
+.app__history-a:hover {
+  text-decoration: underline;
+  color: rgba(255, 0, 0, 0.508);
+  transition: .5s;
+}

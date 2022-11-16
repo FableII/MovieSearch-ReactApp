@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./FormInput.css";
 
-interface FormInputProps {
+interface Props {
   id: number;
   value: string;
   name: string;
@@ -14,7 +14,7 @@ interface FormInputProps {
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-export const FormInput = (props: FormInputProps) => {
+export const FormInput = (props: Props) => {
   const [focus, setFocus] = useState(false);
   const { label, errorMessage, onChange, id, ...inputProps } = props;
 
