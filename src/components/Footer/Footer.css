@@ -6,8 +6,15 @@
 }
 
 .app__footer__list {
-  width: 200px;
+  width: 250px;
   display: flex;
   justify-content: space-between;
   list-style-type: none;
+}
+
+
+.app__footer__list-item:hover {
+  text-decoration: underline;
+  color: rgba(255, 0, 0, 0.508);
+  transition: 0.5s;
 }
