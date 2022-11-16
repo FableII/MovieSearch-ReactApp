@@ -12,10 +12,10 @@ export const Footer = () => {
           <Link to="/new">New</Link>
         </li>
         <li className="app__footer__list-item">
-          <Link to="/about">About</Link>
+          <Link to="/">About</Link>
         </li>
         <li className="app__footer__list-item">
-          <Link to="/contacts">Contacts</Link>
+          <Link to="/">Contacts</Link>
         </li>
       </ul>
 

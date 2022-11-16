@@ -11,7 +11,7 @@ export const SearchInput = (props: Props) => {
   const { onChange, ...inputProps } = props;
 
   return (
-    <div className="app__SearchInput">
+    <div className="app__searchSection">
       <input
         className="app__searchSection-input"
         {...inputProps}
