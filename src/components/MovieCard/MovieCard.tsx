@@ -9,7 +9,7 @@ interface Props {
   title: string,
 }
 
-export const MovieCard = (props: any) => {
+export const MovieCard = (props: Props) => {
   console.log("PROPS",props);
   const { poster, imdbID, title } = props;
 
