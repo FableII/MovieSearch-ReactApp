@@ -1,0 +1,59 @@
+.app__advancedSearch {
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+  display: flex;
+  background-image: url(../../assets//images//NetflixWitcher.jpg);
+  padding: 1rem 10rem;
+  align-items: center;
+  flex-direction: column;
+}
+
+.app__advancedSearch-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app__advancedSearch-input input {
+  border-radius: 10px 0px 0px 10px;
+}
+
+.app__advancedSearch-filterWrap {
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.app__advancedSearch-filterType {
+  font-size: 18px;
+  padding: 10px;
+  color: goldenrod;
+  border-radius: 10px;
+  background-color: rgba(61, 61, 61, 0.827);
+}
+
+.app__advancedSearch-filterItems {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 35px;
+  min-width: 250px;
+}
+
+.app__advancedSearch-filterItem {
+  background-color: rgba(61, 61, 61, 0.827);
+  padding: 10px;
+  color: white;
+  border-radius: 0px 10px;
+  cursor: pointer;
+}
+
+.app__advancedSearch-filterItem.active {
+  background-color: goldenrod;
+}
+
+.app__advancedSearch-input:focus {
+  outline: none;
+}

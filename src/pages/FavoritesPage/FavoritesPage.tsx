@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector, useCurrentUser} from "../../hooks/hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+  useCurrentUser,
+} from "../../hooks/hooks";
 import { User, deleteFavorite } from "../../redux/slices/userSlice";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./FavoritesPage.css";

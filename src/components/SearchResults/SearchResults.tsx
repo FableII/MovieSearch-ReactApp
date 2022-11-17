@@ -1,32 +1,34 @@
 import { useFetchMoviesQuery } from "../../redux/api/movieApi";
 import { MovieCard } from "../MovieCard/MovieCard";
 import { Search } from "../../utils/types/types";
-import "./MoviesSearchResults.css";
+import "./SearchResults.css";
 
 type Props = {
   searchName: string;
 };
 
-const MoviesSearchResults = (props: Props) => {
+const SearchResults = (props: Props) => {
   const { searchName } = props;
   const { data, error, isLoading, isFetching } =
     useFetchMoviesQuery(searchName);
   const movies = data ?? [];
+  console.log("MOVIES!", movies);
+
   if (error) {
     return (
-      <div className="app__moviesSection-hint">Error while fetching movies</div>
+      <div className="app__moviesSection-hint">Error or too many results</div>
     );
   }
 
   if (isLoading) {
-    return <div className="app__moviesSection-hint">Loading movies...</div>;
+    return <div className="app__moviesSection-hint">Loading...</div>;
   }
 
   if (isFetching) {
-    return <div className="app__moviesSection-hint">Fetching movies...</div>;
+    return <div className="app__moviesSection-hint">Fetching...</div>;
   }
   if (movies.length === 0) {
-    return <div className="app__moviesSection-hint">No movies found</div>;
+    return <div className="app__moviesSection-hint">No results</div>;
   }
   if (movies.length >= 1) {
     return (
@@ -41,4 +43,4 @@ const MoviesSearchResults = (props: Props) => {
   return null;
 };
 
-export default MoviesSearchResults;
+export default SearchResults;

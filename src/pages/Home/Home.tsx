@@ -9,7 +9,7 @@ export const Home = () => {
         Unlimited movies, TV shows, and more. Watch anywhere. Cancel anytime.
       </h1>
       <Link to="/movies">
-      <Button buttonName="Start your journey"/>
+        <Button buttonName="Start your journey" />
       </Link>
     </div>
   );

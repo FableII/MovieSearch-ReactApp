@@ -73,7 +73,7 @@ export const SignUp = () => {
               />
             ))}
           </div>
-          <Button buttonName="Submit"/>
+          <Button buttonName="Submit" />
         </form>
         <div className="app__signup-redirect">
           <p className="app__signup-redirect-p">

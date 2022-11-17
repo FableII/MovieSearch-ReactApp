@@ -1,5 +1,5 @@
 import React, { useState, Suspense } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useAppDispatch, useCurrentUser, useDebounce } from "../../hooks/hooks";
 import { useFetchAllMoviesQuery } from "../../redux/api/movieApi";
 import { postHistory } from "../../redux/slices/userSlice";
@@ -7,10 +7,11 @@ import { SearchInput } from "../../components/SearchInput/SearchInput";
 import { Loader } from "../../components/Loader/Loader";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
+import ForwardIcon from "@mui/icons-material/Forward";
 import "./MoviesSection.css";
 
-const MoviesSearchResults = React.lazy(
-  () => import("../../components/MoviesSearchResults/MoviesSearchResults")
+const SearchResults = React.lazy(
+  () => import("../../components/SearchResults/SearchResults")
 );
 
 export const MoviesSection = () => {
@@ -43,24 +44,27 @@ export const MoviesSection = () => {
           "Our searchable database includes millions of movies, TV and entertainment programs and cast and crew members. Enjoy!"
         }
       />
-
-      <SearchInput
-        placeholder="Dynamic search..."
-        value={searchName}
-        onChange={onChange}
-      />
+      <div className="app__dynamicSearch">
+        <SearchInput
+          placeholder="Dynamic search..."
+          value={searchName}
+          onChange={onChange}
+        />
+        <Link className="adv__search" to="/search">
+          Switch to Advanced Search {<ForwardIcon />}
+        </Link>
+      </div>
       <SectionHeader text={"Movies found:"} />
-
       {debouncedSearchName ? (
         <Suspense fallback={<Loader />}>
-          <MoviesSearchResults searchName={debouncedSearchName} />
+          <SearchResults searchName={debouncedSearchName} />
         </Suspense>
       ) : isLoading ? (
         <Loader />
       ) : (
         <section className="app__movies-section">
           {data.map((movie) => (
-            <MovieCard key={movie.itemIDB} {...movie} />
+            <MovieCard {...movie} />
           ))}
         </section>
       )}
