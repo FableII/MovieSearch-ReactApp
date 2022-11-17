@@ -1,7 +1,11 @@
 import PropTypes from "prop-types";
 import "./SectionHeader.css";
 
-export const SectionHeader = ({ text }: Record<any, any>) => {
+interface Prop {
+  text: string;
+}
+
+export const SectionHeader = ({ text }: Prop) => {
   return (
     <div className="app__header">
       <h1 className="app__header-text"> {text} </h1>

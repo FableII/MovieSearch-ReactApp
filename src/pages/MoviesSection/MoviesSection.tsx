@@ -7,7 +7,7 @@ import { SearchInput } from "../../components/SearchInput/SearchInput";
 import { Loader } from "../../components/Loader/Loader";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
-import ForwardIcon from '@mui/icons-material/Forward';
+import ForwardIcon from "@mui/icons-material/Forward";
 import "./MoviesSection.css";
 
 const SearchResults = React.lazy(
@@ -45,14 +45,16 @@ export const MoviesSection = () => {
         }
       />
       <div className="app__dynamicSearch">
-      <SearchInput
-        placeholder="Dynamic search..."
-        value={searchName}
-        onChange={onChange}
-      />
-      <Link className="adv__search" to="/search">Switch to Advanced Search {<ForwardIcon/>}</Link>
+        <SearchInput
+          placeholder="Dynamic search..."
+          value={searchName}
+          onChange={onChange}
+        />
+        <Link className="adv__search" to="/search">
+          Switch to Advanced Search {<ForwardIcon />}
+        </Link>
       </div>
-        <SectionHeader text={"Movies found:"} />
+      <SectionHeader text={"Movies found:"} />
       {debouncedSearchName ? (
         <Suspense fallback={<Loader />}>
           <SearchResults searchName={debouncedSearchName} />
@@ -62,7 +64,7 @@ export const MoviesSection = () => {
       ) : (
         <section className="app__movies-section">
           {data.map((movie) => (
-            <MovieCard key={movie.itemIDB} {...movie} />
+            <MovieCard {...movie} />
           ))}
         </section>
       )}

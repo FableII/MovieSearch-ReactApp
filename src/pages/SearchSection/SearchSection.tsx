@@ -68,7 +68,7 @@ export const SearchSection = () => {
 
   return (
     <div className="app__advancedSearch">
-      <SectionHeader text="Our searchable database includes millions of movies, TV and entertainment programs and cast and crew members. Enjoy!" />
+      <SectionHeader text={"Our searchable database includes millions of movies, TV and entertainment programs and cast and crew members. Enjoy!" }/>
       <div className="app__advancedSearch-input">
         <SearchInput
           placeholder="Search..."
@@ -97,7 +97,7 @@ export const SearchSection = () => {
         </div>
       </div>
       <Button buttonName="Search" onClick={applyFilters} />
-      <SectionHeader text="Search Results:" />
+      <SectionHeader text={"Search Results:"}/>
       <Suspense fallback={<Loader />}>
         <SearchResults searchName={query} />
       </Suspense>
