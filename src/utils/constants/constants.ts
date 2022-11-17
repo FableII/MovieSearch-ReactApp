@@ -1,3 +1,4 @@
+export const TYPE_FILTER = ["Movie", "Series", "Game"];
 export const USERNAME_PATTERN = "^[A-Za-z0-9]{4,16}$";
 export const PASSWORD_PATTERN =
   "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,20}$";

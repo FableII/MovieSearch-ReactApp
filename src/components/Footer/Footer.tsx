@@ -5,11 +5,8 @@ export const Footer = () => {
   return (
     <footer className="app__footer">
       <ul className="app__footer__list">
-        <li className="app__footer__list-item">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="app__footer__list-item">
-          <Link to="/new">New</Link>
+        <li className="app__footer__list-item advanced">
+          <Link to="/search">Advanced search</Link>
         </li>
         <li className="app__footer__list-item">
           <Link to="/">About</Link>

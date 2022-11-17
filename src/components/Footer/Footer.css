@@ -6,15 +6,22 @@
 }
 
 .app__footer__list {
-  width: 250px;
+  width: 300px;
   display: flex;
   justify-content: space-between;
   list-style-type: none;
 }
 
-
 .app__footer__list-item:hover {
   text-decoration: underline;
   color: rgba(255, 0, 0, 0.508);
-  transition: 0.5s;
+  transition: 0.7s;
+}
+
+.advanced {
+  text-decoration: underline;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: goldenrod;
+  transition: 0.7s;
 }

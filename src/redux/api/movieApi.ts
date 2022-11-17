@@ -63,7 +63,7 @@ export const moviesAPI = createApi({
     }),
     fetchMovies: build.query({
       query: (query) => ({
-        url: `?apikey=${API_KEY}&s=${query}&type=movie`,
+        url: `?apikey=${API_KEY}&s=${query}`,
       }),
       transformResponse: (data: MovieResponse) => {
         const transformedData = [];

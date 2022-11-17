@@ -69,5 +69,5 @@
 .app__history-a:hover {
   text-decoration: underline;
   color: rgba(255, 0, 0, 0.508);
-  transition: .5s;
+  transition: 0.5s;
 }

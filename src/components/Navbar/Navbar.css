@@ -37,7 +37,7 @@
   cursor: pointer;
 }
 
-.app__navbar__list-item{
+.app__navbar__list-item {
   font-size: large;
 }
 
@@ -67,8 +67,7 @@
   transition: 1s;
 }
 
-.mode__wrap-light{
+.mode__wrap-light {
   color: #333333;
   transition: 1s;
 }
-

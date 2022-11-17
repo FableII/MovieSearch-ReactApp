@@ -6,6 +6,7 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { MoviePage } from "./pages/MoviePage/MoviePage";
 import { MoviesSection } from "./pages/MoviesSection/MoviesSection";
+import { SearchSection } from "./pages/SearchSection/SearchSection";
 import { FavoritesPage } from "./pages/FavoritesPage/FavoritesPage";
 import { HistoryPage } from "./pages/HistoryPage/HistoryPage";
 import { Home } from "./pages/Home/Home";
@@ -31,6 +32,17 @@ function App() {
               </ErrorBoundary>
             }
           />
+
+          <Route path="/search/" element={<SearchSection />} />
+          <Route
+            path="/search/:name"
+            element={
+              <ErrorBoundary fallback={<ErrorFallback />}>
+                <MoviePage />
+              </ErrorBoundary>
+            }
+          />
+
           <Route element={<ProtectedRoute />}>
             <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/history" element={<HistoryPage />} />
