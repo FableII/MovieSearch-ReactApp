@@ -1,22 +1,18 @@
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Button } from '../Button/Button';
-import './MovieCard.css';
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { Button } from "../Button/Button";
+import "./MovieCard.css";
 
 export const MovieCard = (props: Record<any, any>) => {
-  const {
-    poster,
-    imdbID,
-    title
-  } = props;
+  const { poster, imdbID, title } = props;
 
   return (
-    <div className='app__movie-item' key={imdbID}>
-      <div className='app__movie-image'>
-        <img src={poster} alt='No poster'></img>
+    <div className="app__movie-item" key={imdbID}>
+      <div className="app__movie-image">
+        <img src={poster} alt="No poster"></img>
       </div>
       <Link to={title}>
-       <Button buttonName='More'/>
+        <Button buttonName="More" />
       </Link>
     </div>
   );
@@ -27,4 +23,4 @@ MovieCard.propTypes = {
   imdbID: PropTypes.string,
   Poster: PropTypes.string,
   Title: PropTypes.string,
-}
+};

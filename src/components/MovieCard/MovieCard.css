@@ -1,4 +1,4 @@
-.app__movie-item{
+.app__movie-item {
   margin-bottom: 50px;
 }
 
@@ -23,4 +23,9 @@
 
 .app__movie-item img:hover {
   transform: scale(1.1);
+}
+
+.app__movie-item button {
+  margin: 0;
+  border-radius: 0px 0px 15px 15px;
 }
