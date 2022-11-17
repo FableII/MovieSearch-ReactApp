@@ -9,8 +9,9 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import "./Navbar.css";
 
 export const Navbar = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
   const dispatch = useAppDispatch();
+
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const { isAuth, username, email } = useCurrentUser() || {};
 
   const logout = (e: React.SyntheticEvent) => {

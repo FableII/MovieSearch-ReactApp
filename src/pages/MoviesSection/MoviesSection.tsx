@@ -64,7 +64,12 @@ export const MoviesSection = () => {
       ) : (
         <section className="app__movies-section">
           {data.map((movie) => (
-            <MovieCard {...movie} />
+            <MovieCard
+              key={movie.imdbID}
+              imdbID={movie.imdbID}
+              poster={movie.poster}
+              title={movie.title}
+            />
           ))}
         </section>
       )}

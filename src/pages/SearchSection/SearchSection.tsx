@@ -24,7 +24,7 @@ export const SearchSection = () => {
   const [filterState, setFilterState] = React.useState<Record<string, boolean>>(
     {}
   );
-  const [query, setQuery] = React.useState(urlQuery || "star_wars");
+  const [query, setQuery] = React.useState(urlQuery || "spider");
   const [searchName, setSearchName] = useState(name || "");
   const navigate = useNavigate();
 
@@ -52,7 +52,7 @@ export const SearchSection = () => {
 
   const applyFilters = () => {
     const resultQueryParams: string[] = [];
-    resultQueryParams.push(`=${searchName || "star_wars"}`);
+    resultQueryParams.push(`=${searchName || 'spider'}`);
 
     for (let key in filterState) {
       if (filterState[key] && key !== "All") {
