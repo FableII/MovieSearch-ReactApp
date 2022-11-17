@@ -7,8 +7,8 @@ export interface MovieResponse {
   Search: Record<string, Search>[];
   totalResults: string;
   Response: string;
+  [propName: string]: any;
 }
-
 export interface MovieInfo {
   Title: string;
   Year: string;
@@ -66,17 +66,19 @@ export const moviesAPI = createApi({
         url: `?apikey=${API_KEY}&s=${query}`,
       }),
       transformResponse: (data: MovieResponse) => {
-        const transformedData = [];
-
-        for (let i = 0; i < data.Search.length; i++) {
-          let obj: Record<string, Search> = {};
-          for (let key in data.Search[i]) {
-            obj[key[0].toLowerCase() + key.slice(1)] = data.Search[i][key];
+        const transformedData: Array<Record<string, Search>> = [];
+        if (data.Error === "Movie not found!") {
+          return transformedData;
+        } else {
+          for (let i = 0; i < data.Search.length; i++) {
+            let obj: Record<string, Search> = {};
+            for (let key in data.Search[i]) {
+              obj[key[0].toLowerCase() + key.slice(1)] = data.Search[i][key];
+            }
+            transformedData.push(obj);
           }
-          transformedData.push(obj);
+          return transformedData;
         }
-
-        return transformedData;
       },
     }),
   }),

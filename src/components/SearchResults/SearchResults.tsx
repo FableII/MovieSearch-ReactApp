@@ -12,8 +12,9 @@ const SearchResults = (props: Props) => {
   const { data, error, isLoading, isFetching } =
     useFetchMoviesQuery(searchName);
   const movies = data ?? [];
+
   if (error) {
-    return <div className="app__moviesSection-hint">Error while fetching</div>;
+    return <div className="app__moviesSection-hint">Error or too many results</div>;
   }
 
   if (isLoading) {
@@ -40,3 +41,4 @@ const SearchResults = (props: Props) => {
 };
 
 export default SearchResults;
+//

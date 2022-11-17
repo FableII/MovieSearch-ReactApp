@@ -12,7 +12,6 @@ export const useCurrentUser = (): User => {
   let currentUser;
 
   if (users) {
-    console.log(users);
     currentUser = Object.values(users).find((obj) => obj.isAuth === true);
   }
 

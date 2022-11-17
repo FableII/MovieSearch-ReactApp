@@ -1,5 +1,5 @@
 import React, { useState, Suspense } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useAppDispatch, useCurrentUser } from "../../hooks/hooks";
 import { TYPE_FILTER } from "../../utils/constants/constants";
 import { postHistory } from "../../redux/slices/userSlice";
@@ -7,6 +7,7 @@ import { Loader } from "../../components/Loader/Loader";
 import { Button } from "../../components/Button/Button";
 import { SearchInput } from "../../components/SearchInput/SearchInput";
 import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
+import ForwardIcon from "@mui/icons-material/Forward";
 import "./SearchSection.css";
 
 const SearchResults = React.lazy(
@@ -23,7 +24,7 @@ export const SearchSection = () => {
   const [filterState, setFilterState] = React.useState<Record<string, boolean>>(
     {}
   );
-  const [query, setQuery] = React.useState(urlQuery || "Hobbit");
+  const [query, setQuery] = React.useState(urlQuery || "star_wars");
   const [searchName, setSearchName] = useState(name || "");
   const navigate = useNavigate();
 
@@ -51,10 +52,10 @@ export const SearchSection = () => {
 
   const applyFilters = () => {
     const resultQueryParams: string[] = [];
-    resultQueryParams.push(`=${searchName}`);
+    resultQueryParams.push(`=${searchName || "star_wars"}`);
 
     for (let key in filterState) {
-      if (filterState[key]) {
+      if (filterState[key] && key !== "All") {
         resultQueryParams.push(`type=${key}`);
       }
     }
@@ -67,11 +68,18 @@ export const SearchSection = () => {
 
   return (
     <div className="app__advancedSearch">
-      <SectionHeader text="Advanced Search" />
+      <SectionHeader text="Our searchable database includes millions of movies, TV and entertainment programs and cast and crew members. Enjoy!" />
       <div className="app__advancedSearch-input">
-        <SearchInput value={searchName} onChange={onChange} />
-        <Button buttonName="Search" onClick={applyFilters} />
+        <SearchInput
+          placeholder="Search..."
+          value={searchName}
+          onChange={onChange}
+        />
+        <Link className="adv__search" to="/movies">
+          Switch to Dynamic Search {<ForwardIcon />}
+        </Link>
       </div>
+
       <div className="app__advancedSearch-filterWrap">
         <span className="app__advancedSearch-filterType">Type :</span>
         <div className="app__advancedSearch-filterItems">
@@ -88,8 +96,8 @@ export const SearchSection = () => {
           })}
         </div>
       </div>
-
-      <SectionHeader text="Search Result" />
+      <Button buttonName="Search" onClick={applyFilters} />
+      <SectionHeader text="Search Results:" />
       <Suspense fallback={<Loader />}>
         <SearchResults searchName={query} />
       </Suspense>
