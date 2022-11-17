@@ -2,7 +2,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Search } from "../../utils/types/types";
 
 const API_KEY = "fda38699";
-
 export interface MovieResponse {
   Search: Record<string, Search>[];
   totalResults: string;
