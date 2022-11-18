@@ -11,6 +11,15 @@
 .app__home-header {
   width: 600px;
   margin-top: 100px;
-  color: #fff;
+  color: whitesmoke;
   text-align: center;
+  border-bottom: 5px solid whitesmoke;
+  border-top: 5px solid whitesmoke;
+}
+
+
+.app__home h2 {
+  color: black;
+  text-align: center;
+  text-transform: uppercase;
 }

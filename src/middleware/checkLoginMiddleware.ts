@@ -1,5 +1,5 @@
-import { RootState } from "../redux/store/store";
 import { Middleware } from "redux";
+import { RootState } from "../redux/store/store";
 
 export const checkLoginMiddleware: Middleware =
   (store) => (next) => (action) => {

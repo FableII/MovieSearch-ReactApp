@@ -25,13 +25,13 @@
   justify-content: space-between;
 }
 
-.app__dynamicSearch{
+.app__dynamicSearch {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.app__dynamicSearch input{
+.app__dynamicSearch input {
   border-radius: 10px 0px 0px 10px;
 }
 
