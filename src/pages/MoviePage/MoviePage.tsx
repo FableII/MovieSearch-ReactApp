@@ -64,7 +64,7 @@ export const MoviePage = () => {
               ) : null}
             </div>
             <div className="app__moviepage-infoWrap-info">
-              <span>Title:</span> {data?.title}
+              <span>Title:</span> {data.title}
             </div>
             <div className="app__moviepage-infoWrap-info">
               <span>Cast:</span> {data.actors}
