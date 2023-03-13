@@ -22,6 +22,5 @@
 - Используется RTK Query ✅ [movieApi](./src/redux/api/movieApi.ts)
 - Используется Transforming Responses ✅ [movieApi](./src/redux/api/movieApi.ts)
 
-## 2 уровень
 
-- Использование TypeScript ✅
+### Использован TypeScript ✅
