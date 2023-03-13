@@ -3,7 +3,7 @@
 ![](./src/assets/images/Demo.jpg)
 
 ### React
-- Функциональные компоненты c хуками в приоритете над классовыми ✅
+- Проект написан с использованием функциональных компонентов в приоритете над классовыми.✅
 - Есть четкое разделение на умные и глупые компоненты ✅ [pages](./src/pages) и [components](./src/components)
 - Есть рендеринг списков ✅ [SearchResults](./src/components/SearchResults/SearchResults.tsx), [FavoritesPage](./src/pages/FavoritesPage/FavoritesPage.tsx), [HistoryPage](./src/pages/HistoryPage/HistoryPage.tsx).
 - Реализована хотя бы одна форма ✅ [SignUp](./src/pages/SignUp/SignUp.tsx), [SignIn](./src/pages/SignIn/SignIn.tsx).
@@ -16,11 +16,10 @@
 
 ### Redux
 
-- Используем Modern Redux with Redux Toolkit ✅ [redux](./src/redux/)
-- Используем слайсы ✅ [userSlice](./src/redux/slices/userSlice.ts)
+- Используется Modern Redux with Redux Toolkit ✅ [redux](./src/redux/)
+- Используются слайсы ✅ [userSlice](./src/redux/slices/userSlice.ts)
 - Есть хотя бы одна кастомная мидлвара ✅ [checkLoginMiddleware](./src/middleware//checkLoginMiddleware.ts)
 - Используется RTK Query ✅ [movieApi](./src/redux/api/movieApi.ts)
 - Используется Transforming Responses ✅ [movieApi](./src/redux/api/movieApi.ts)
-
 
 ### Использован TypeScript ✅
